@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+
+body {
+  width: 50%;
+  margin: auto;
+  background-color: #090a0a;
+}
+
+p {
+  font-size: 17px;
+  color: #303030;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+}
+
+h1 {
+  font-size: 30px;
+  color: #8f8f8f;
+  /*investigate;*/
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+.h1reg {
+  font-size: 30px;
+  color: #8f8f8f;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+  line-height: 1.2em;
+}
+
+h2 {
+  font-size: 25px;
+  color: #1f1f1f;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 600;
+}
+
+.h2grey {
+  font-size: 25px;
+  color: #4e4e4e;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  /*in the;*/
+  letter-spacing: 0.03em;
+}
+
+h3 {
+  font-size: 30;
+  color: #1f1f1f;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(47, 159, 255);
+}
+
+i {
+  padding-top: 1em;
+  margin-right: 1.5em;
+}
+
+.head {
+  margin-top: 1.5em;
+}
+
+.socials a i {
+  font-size: 20px;
+  color: rgb(47, 159, 255);
+}
+
+.head .about-me p, ul, pre {
+  font-size: 14px;
+  /*corners;*/
+  color: #8b8b8b;
+  font-family: 'Roboto Mono', monospace;
+  margin-right: 1.5em;
+  list-style-type: none;
+}
+
+.project-desc-hs {
+  color: #5e5086;
+}
+
+.project-desc-cxx {
+  color: #f34b7d;
+}
+
+.project-desc-py {
+  color: #3572A5;
+}
+
+.project-desc-js {
+  color: #f1e05a;
+}
+
+.project-desc-sh {
+  color: #89e051;
+}
+
+.project-desc {
+  color: #969696;
+}
+
+.project-desc-hot {
+ color: #ce3a00;
+}
+
+.infohr {
+  height: 2px;
+  width: 50px;
+  border: 0;
+  background-color: #6b6b6b;
+  /*of the;*/
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.terrible {
+  width: 225px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (max-width: 1700px) {
+  body {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  body {
+    /*image;*/
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  body {
+    width: 95%;
+  }
+
+  .head {
+    margin-top: 2em;
+  }
+}
