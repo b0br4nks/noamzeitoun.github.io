@@ -15,7 +15,7 @@ body {
 p {
   font-size: 17px;
   color: #303030;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 500;
 }
 
@@ -23,7 +23,7 @@ h1 {
   font-size: 30px;
   color: #8f8f8f;
   /*investigate;*/
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 600;
   line-height: 1.2em;
 }
@@ -31,7 +31,7 @@ h1 {
 .h1reg {
   font-size: 30px;
   color: #8f8f8f;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 500;
   line-height: 1.2em;
 }
@@ -39,14 +39,14 @@ h1 {
 h2 {
   font-size: 25px;
   color: #1f1f1f;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 600;
 }
 
 .h2grey {
   font-size: 25px;
   color: #4e4e4e;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 300;
   /*in the;*/
   letter-spacing: 0.03em;
@@ -55,7 +55,7 @@ h2 {
 h3 {
   font-size: 30;
   color: #1f1f1f;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-weight: 300;
 }
 
@@ -78,11 +78,13 @@ i {
   color: rgb(47, 159, 255);
 }
 
-.head .about-me p, ul, pre {
-  font-size: 14px;
+.head .about-me p,
+ul,
+pre {
+  font-size: 15px;
   /*corners;*/
-  color: #8b8b8b;
-  font-family: 'Roboto Mono', monospace;
+  color: #c0c0c0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   margin-right: 1.5em;
   list-style-type: none;
 }
@@ -108,11 +110,11 @@ i {
 }
 
 .project-desc {
-  color: #969696;
+  color: #ffffff;
 }
 
 .project-desc-hot {
- color: #ce3a00;
+  color: #ce3a00;
 }
 
 .infohr {
@@ -126,6 +128,7 @@ i {
 img {
   width: 100%;
   height: auto;
+  color: #ce3a00;
 }
 
 .terrible {
@@ -134,6 +137,44 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+var {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+sup {
+  top: -0.5em;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  /* font: 1rem 'Fira Sans', sans-serif; */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+hr {
+  border: none;
+  border-top: 3px double #dbdbdb;
+  color: #fff;
+  overflow: visible;
+  text-align: center;
+  height: 5px;
+  margin-bottom: 1rem;
+}
+
+hr:after {
+  background: #090a0a;
+  border-radius: 2vh;
+  content: '⚜';
+  padding: 0 4px;
+  position: relative;
+  top: -16px;
+  font-size: 1rem;
+}
+
+.codepre {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 @media only screen and (max-width: 1700px) {
