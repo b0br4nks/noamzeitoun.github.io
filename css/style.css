@@ -12,6 +12,10 @@ body {
   background-color: #090a0a;
 }
 
+li:not(:last-child) { 
+  margin-bottom: 5px;  
+}
+
 p {
   font-size: 17px;
   color: #303030;
@@ -95,6 +99,10 @@ pre {
 
 .project-desc-cxx {
   color: #f34b7d;
+}
+
+.project-desc-go {
+  color: #00ADD8
 }
 
 .project-desc-py {

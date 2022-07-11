@@ -32,22 +32,22 @@
 
     <pre>
 
-<a href="https://github.com/GeneralNZR/noamzeitoun.tk">root</a>/
+<a href="https://github.com/b0br4nks/noamzeitoun.tk">root</a>/
 └── portfolio/
       ├── css/
       │     └── <a href="css/style.css" target="_blank">style.css</a>
       │ 
       ├── img/
-      │     ├── <a href="img/6341737065725465616d.png" target="_blank">6341737065725465616d.png</a>
+      │     ├── <a href="img/0x2a0x530x420x420x2a.png" target="_blank">0x2a0x530x420x420x2a.png</a>
       │     │ 
       │     └── <a href="img/logo.png" target="_blank">logo.png</a>
       │ 
       ├── src/
       │     ├── <a href="src/index.txt" target="_blank">index.txt</a>
       │     │ 
-      │     ├── <a href="src/blog.html">blog/</a> <span style="color: #ff0000;"><--------- my blog</span>
+      │     ├── <a href="src/blog.html">blog/</a> <span style="color: #ff0000;"><------------------- my blog</span>
       │     │ 
-      │     ├── <a href="src/projects.html">projects/</a> <span style="color: #ff0000;"><----- my work</span>
+      │     ├── <a href="src/projects.html">projects/</a> <span style="color: #ff0000;"><-------------- my work</span>
       │     │ 
       │     └── <a href="src/secret.html">secret.html</a> 
       │ 
@@ -58,12 +58,12 @@
 
     <div class="socials">
       <a href="https://www.linkedin.com/in/noamzeitoun/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/GeneralNZR" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://github.com/b0br4nks" target="_blank"><i class="fab fa-github"></i></a>
     </div>
     <br />
 
     <div class="about-me">
-      <p>Welcome to my portfolio.</p>
+      <p>Welcome to my page.</p>
       <br />
 
       <p>
