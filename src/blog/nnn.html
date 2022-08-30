@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Noam Zeitoun</title>
+    <meta name="description" content="A portfolio showcasing a few projects I've done." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Roboto+Mono:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <!--TEST-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap" rel="stylesheet">
+    <!--TEST-->
+    <script src="https://kit.fontawesome.com/0a0bbe6231.js"></script>
+</head>
+
+<body>
+    <div class="head">
+        <div class="logo">
+            <a href="/"><img src="/img/logo.png" alt="my logo" width="200px" height="auto" /></a>
+        </div>
+        <div class="about-me"><br />
+            <pre>
+<a href="/index.html">../</a>
+└── <a href="./blog_index.html">blog/</a>
+      │
+      ├── <a href="./nlp.html"
+          >●</a
+          > Introduction to the Artificial Intelligence that can be applied to the Network Automation Journey
+      │ 
+      ├── <a href=".//zerotozero.html"
+          >●</a
+          > The special case of <var>0<sup>0</sup></var>
+      │
+      └── <a href="./primesum.html"
+        >●</a
+        > Primes sums fun
+        <br />
+    <em>(all '●' are clickable anchor elements redirecting to the relevant post.)<br>
+    </em>
+</pre>
+            <hr>
+            <p>
+                <span class="project-desc">></span> I came across a programming problem that made me think for a while
+                :<br />
+                Write a Python program that accepts an integer <var>n</var> and computes the value of
+                <var>n+nn+nnn+nnn+...</var><br /><br />
+
+                This is the programming problem that got me thinking for a while tonight, and I saw few correct answers
+                on internet in the case where <var>n</var> is greater than <var>9</var>.<br /><br />
+
+                Here is about what I have seen the most as a solution:<br /><br />
+
+                (we'll limit ourselves here to <var>n+nn+nnn</var>)<br />
+            <pre class="codepre" style="color: rgb(47, 159, 255);"><strong>
+python3 example.py
+
+def func(n):
+    k = n
+    sum = 0
+    for i in range(3): #limit n+nn+nnn
+        sum += k
+        k = k * 10 + n
+    return sum
+</strong>
+#Output:
+#<var>func(1)  -> 123</var>
+#<var>func(2)  -> 246</var>
+#<var>func(3)  -> 369</var>
+#<var>func(4)  -> 492</var>
+#<var>func(5)  -> 615</var>
+#<var>func(6)  -> 738</var>
+#<var>func(7)  -> 861</var>
+#<var>func(8)  -> 984</var>
+#<var>func(9)  -> 1107</var>
+#<var>func(10) -> 1230</var>
+</pre><br />
+            <p>
+                For <var>n = 9</var>, we have <var>1107</var> (because <var>9+99+999 = 108 + 999</var>),<br />
+                but for <var>n = 10</var>, we get <var>1230</var>, or <var>10+1010+101010</var> is much higher, since
+                <var>1230 < 101010</var>.<br /><br />
+
+                        The problem here is that we multiply <var>k</var> by <var>10</var> and then we add
+                        n.<br /><br />
+
+                        example with <var>n = 9</var>:<br />
+                        >>> <var>9 * 10 = 90</var><br />
+                        >>> <var>90 + 9 = 99</var><br /><br />
+
+                        but for <var>n = 10</var>:<br />
+                        >>> <var>10 * 10 = 100</var><br />
+                        >>> <var>100 + 10 = 110</var><br /><br />
+
+                        However, we're looking for <var>1010</var>. A solution would be to make a condition like if
+                        <var>n > 9</var>, then there we multiply by <var>100</var> instead of <var>10</var>, but it does
+                        not look clean.<br /><br />
+                        My solution:<br />
+                        <pre class="codepre" style="color: rgb(47, 159, 255);"><strong>
+python3 my_solution.py
+
+def func(n):
+    m = []
+    k = ''
+    for i in range(3):
+        k += str(n)
+        m.append(int(k))
+        sum = 0
+        for j in range(len(m)):
+            sum = sum + int(m[j])
+    return sum
+</strong>
+#Output:
+#<var>func(10)   -> 102030</var>
+#<var>func(20)   -> 204060</var>
+#<var>func(100)  -> 100200300</var>
+#<var>func(1000) -> 100020003000</var>
+</pre><br />
+                        <p>
+                            - I initialize a list to store the series,<br />
+                            - I declare an empty string,<br />
+                            - We limit to <var>n+nn+nnn</var>,<br />
+                            - I make the sequence of characters <var>n, nn, nnn</var>,<br />
+                            - I store all the sequences,<br />
+                            - The rest is just loops and additions.<br /><br />
+
+                            Thus, for <var>n = 10</var>, we obtain <var>102030</var>.
+                        </p>
+                        <br />
+                        <hr>
+                        <!-- SEPARATOR -->
+                        <!-- SEPARATOR -->
+                        <!-- SEPARATOR -->
+        </div>
+    </div>
+</body>
+
+</html>
+
+</html>

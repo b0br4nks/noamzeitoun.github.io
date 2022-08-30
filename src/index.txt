@@ -45,7 +45,7 @@
       ├── src/
       │     ├── <a href="src/index.txt" target="_blank">index.txt</a>
       │     │ 
-      │     ├── <a href="src/blog.html">blog/</a> <span style="color: #ff0000;"><------------------- my blog</span>
+      │     ├── <a href="src/blog/blog_index.html">blog/</a> <span style="color: #ff0000;"><------------------- my blog</span>
       │     │ 
       │     ├── <a href="src/projects.html">projects/</a> <span style="color: #ff0000;"><-------------- my work</span>
       │     │ 
