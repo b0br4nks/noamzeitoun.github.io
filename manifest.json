@@ -1,0 +1,14 @@
+{
+  "name": "Noam Zeitoun",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff",
+  "description": "Noam Zeitoun: Portfolio",
+  "icons": [
+    {
+      "src": "",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ]
+}
