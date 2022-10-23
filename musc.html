@@ -199,12 +199,12 @@ output*  output.asm  output.o  assets/  LICENCE  musc.py*  README.md  test.py*  
 <span class="hljs-number">1</span>
         </code></pre>
     <h3 id="testing">> Testing</h3>
-    <p>Test cases are located in <a href="./tests/">./tests/</a> folder. The <code>*.txt</code> files are the expected
+    <p>Test cases are located in <code>./tests/</code> folder. The <code>*.txt</code> files are the expected
         outputs of the corresponding programs.</p>
     <p>However, you can choose in which folder the tests should be executed with the <code>-f</code> subcommand:</p>
     <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -f &lt;folder&gt;
         </code></pre>
-    <p>Run <a href="./test.py">./test.py</a> script with the <code>-h</code> subcommand to print more info on the stdout
+    <p>Run <code>./test.py</code> script with the <code>-h</code> subcommand to print more info on the stdout
         (default, if no subcommand is provided):</p>
     <pre><code class="lang-console">Usage: ./test.py [OPTIONS] [SUBCOMMAND]
 OPTIONS:
@@ -215,14 +215,14 @@ SUBCOMMANDS:
     -c          Clean <span class="hljs-keyword">the</span> <span class="hljs-built_in">directory</span>.
     -h          Print this message <span class="hljs-built_in">to</span> <span class="hljs-keyword">stdout</span> <span class="hljs-keyword">and</span> exit <span class="hljs-keyword">with</span> <span class="hljs-number">0</span> code.(Default when no subcommand is provided)
         </code></pre>
-    <p>Run <a href="./test.py">./test.py</a> script with the <code>-t</code> subcommand to execute the programs and
+    <p>Run <code>./test.py</code> script with the <code>-t</code> subcommand to execute the programs and
         assert their outputs:</p>
     <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -t
         </code></pre>
     <p>To update expected output files run the <code>-r</code> subcommand:</p>
     <pre><code class="lang-console">$ ./<span class="hljs-keyword">test</span>.py -<span class="hljs-built_in">r</span>
         </code></pre>
-    <p>The <a href="./examples/">./examples/</a> contains programs that are meant for showcasing the language rather
+    <p>The <code>./examples/</code> contains programs that are meant for showcasing the language rather
         then testing it:</p>
     <pre><code class="lang-console">$ ./<span class="hljs-keyword">test</span>.py -f ./examples/ -<span class="hljs-built_in">r</span>
         </code></pre>
@@ -233,8 +233,8 @@ SUBCOMMANDS:
     <h3 id="usage">> Usage</h3>
     <p>If you wanna use the Musc compiler separately from its code base you only need two things:</p>
     <ul>
-        <li><a href="./musc.py">./musc.py</a> - the compiler itself,</li>
-        <li><a href="./std/">./std/</a> - the standard library.</li>
+        <li><code>./musc.py</code> - the compiler itself,</li>
+        <li><code>./std/</code> - the standard library.</li>
     </ul>
     <p>By default the compiler searches files to include in <code>./</code> and <code>./std/</code>. You can add more
         search paths via the <code>-I</code> flag before the subcommand:
