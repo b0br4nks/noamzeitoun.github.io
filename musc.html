@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="Noam Zeitoun Portfolio" />
+    <meta name="keywords" content="noam zeitoun personal portfolio" />
+    <meta name="language" content="en-us" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="creator" content="Noam Zeitoun" />
+    <!-- <link rel="icon" href="images/favicon.ico"> -->
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style_musc.css" />
+    <title>Noam Zeitoun</title>
+</head>
+
+<body>
+    <div align="center">
+        <p>
+            <img width="200" src="assets/musc_logo_solo.png">
+        </p>
+        <h1>The Musc Programming Language</h1>
+
+
+        <p style="font-size: small;">**The development of this language is in progress!</p><br>
+    </div>
+    <div class="toc">
+        <a href="/index.html">
+            <-- back</a>
+                <ul>
+                    <li><a href="#stack-oriented">Stack-Oriented</a></li>
+                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#quick-start">Quick Start</a>
+                        <ul>
+                            <li><a href="#help">Help</a></li>
+                            <li><a href="#simulation">Simulation</a></li>
+                            <li><a href="#compilation">Compilation</a></li>
+                            <li><a href="#testing">Testing</a></li>
+                            <li><a href="#usage">Usage</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#language-reference">Language Reference</a>
+                        <ul>
+                            <li><a href="#data-types">Data Types</a></li>
+                            <li><a href="#built-in-words">Built-in Words</a>
+                                <ul>
+                                    <li><a href="#stack-manipulation">Stack Manipulation</a></li>
+                                    <li><a href="#comparison">Comparison</a></li>
+                                    <li><a href="#arithmetic">Arithmetic</a></li>
+                                    <li><a href="#bitwise">Bitwise</a></li>
+                                    <li><a href="#control-flow">Control Flow</a></li>
+                                    <li><a href="#if-else-condition">if-else condition</a></li>
+                                    <li><a href="#while-loop">while loop</a></li>
+                                    <li><a href="#memory">Memory</a></li>
+                                    <li><a href="#system">System</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#macros">Macros</a></li>
+                            <li><a href="#include">Include</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+    </div>
+    <h2 id="stack-oriented">Stack-Oriented</h2>
+    <hr>
+    <p>A <a href="https://en.wikipedia.org/wiki/Stack-oriented_programming">stack-oriented language</a> is one which
+        primarily uses a stack, instead of (or in addition to) named variables, to manage data flow. This concept is
+        closely related to that of <a
+            href="https://en.wikipedia.org/wiki/Concatenative_programming_language">concatenative languages</a>, most of
+        which are stack-based.</p>
+    <h2 id="roadmap">Roadmap</h2>
+    <hr>
+    <p><span style="color: green;">●</span> Compiled (<a href="https://en.wikipedia.org/wiki/Compiled_language">Compiled
+            language</a>)</p>
+    <p><span style="color: green;">●</span> Native (<a
+            href="https://en.wikipedia.org/wiki/Native_%28computing%29">Native</a>)</p>
+    <p><span style="color: green;">●</span> <a href="./examples/rule_110.musc">Turing-complete</a> (<a
+            href="https://en.wikipedia.org/wiki/Turing_completeness">Turing completeness</a>)</p>
+    <p><span style="color: red;">●</span> Statically typed (<a
+            href="https://en.wikipedia.org/wiki/Type_system#Static_type_checking">Static type checking</a>)</p>
+    <p><span style="color: red;">●</span> Self-hosted (Written in itself, no more Python. <a
+            href="https://en.wikipedia.org/wiki/Self-hosting_(compilers">Self-hosting</a>)</p>
+    <h2 id="examples">Examples</h2>
+    <hr>
+    <p>&quot;Hello, World!&quot;:</p>
+    <pre><code class="lang-v"><span class="hljs-keyword">use</span> <span class="hljs-string">"io.musc"</span>
+    
+<span class="hljs-string">"Hello, World!\n"</span> fmt
+        </code></pre>
+    <p>Two simple programs:</p>
+    <ul>
+        <li>the first one prints numbers from 10 to 0 in descending order (multi-line example);</li>
+        <li>the second one prints numbers from 0 to 10 in ascending order (one line example);</li>
+    </ul>
+    <p>descending order</p>
+    <pre><code class="lang-v"><span class="hljs-number">10</span> <span class="hljs-keyword">while</span> cp -<span class="hljs-number">1</span> &gt; <span class="hljs-keyword">do</span>
+    cp =&gt;
+    <span class="hljs-number">1</span> -
+<span class="hljs-keyword">end</span>
+        </code></pre>
+    <p>ascending order</p>
+    <pre><code class="lang-v"><span class="hljs-symbol">0 </span><span class="hljs-keyword">while</span> cp <span class="hljs-number">11</span> &lt; do cp =&gt; <span class="hljs-number">1</span> + <span class="hljs-keyword">end</span>
+        </code></pre>
+    <h2 id="quick-start">Quick Start</h2>
+    <hr>
+    <h3 id="help">> Help</h3>
+    <pre><code class="lang-console">$ ./musc.py -<span class="hljs-built_in">h</span>
+Usage: ./musc.py [<span class="hljs-keyword">OPTIONS</span>] &lt;SUBCOMMAND&gt; [<span class="hljs-keyword">ARGS</span>]
+
+OPTIONS
+     -dbg                     <span class="hljs-keyword">Enable debug mode</span> 
+     -I           &lt;<span class="hljs-keyword">path</span>&gt;      Add the path to the include search list
+    
+SUBCOMMANDS
+     -s           &lt;<span class="hljs-keyword">file</span>&gt;      <span class="hljs-keyword">Simulate</span> the <span class="hljs-keyword">program</span>
+     -c [OPTIONS] &lt;<span class="hljs-keyword">file</span>&gt;      Compile the <span class="hljs-keyword">program</span>
+     -<span class="hljs-keyword">h</span>                       <span class="hljs-keyword">Print</span> <span class="hljs-keyword">help</span> to STDOUT and <span class="hljs-keyword">exit</span> 0
+    
+OPTIONS
+     -r                       <span class="hljs-keyword">Run</span> the <span class="hljs-keyword">program</span> after successful compilation
+     -o         &lt;<span class="hljs-keyword">file</span>|<span class="hljs-keyword">dir</span>&gt;    Customize the output path
+        </code></pre>
+    <h3 id="simulation">> Simulation</h3>
+    <p>The simulation is an interpretation of the program</p>
+    <pre><code class="lang-console">$ cat ./tests/<span class="hljs-number">03</span>_arithmetics.musc
+-- <span class="hljs-number">03</span>_arithmetics.musc
+    
+-- add
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> + =&gt;
+    
+-- substract
+<span class="hljs-number">3</span> <span class="hljs-number">2</span> - =&gt;
+
+$ ./musc.py -s ./tests/<span class="hljs-number">03</span>_arithmetics.musc
+<span class="hljs-number">3</span>
+<span class="hljs-number">1</span>
+        </code></pre>
+    <h3 id="compilation">> Compilation</h3>
+    <p>The compilation generates assembly code, compiles it with <a href="https://www.nasm.us/">nasm</a>, and then links
+        it with <a href="https://www.gnu.org/software/outpututils/">GNU ld</a>. Both should be available in your
+        <code>$PATH</code>.</p>
+    <pre><code class="lang-console">$ cat ./tests/<span class="hljs-number">03</span>_arithmetics.musc
+-- <span class="hljs-number">03</span>_arithmetics.musc
+-- add
+<span class="hljs-number">1</span> <span class="hljs-number">2</span> + =&gt;
+-- substract
+<span class="hljs-number">3</span> <span class="hljs-number">2</span> - =&gt;
+
+$ ./musc.py -c ./tests/<span class="hljs-number">03</span>_arithmetics.musc
+[INFO] Generating <span class="hljs-number">03</span>_arithmetics.asm
+[CMD] nasm -felf64 tests/<span class="hljs-number">03</span>_arithmetics.asm
+[CMD] ld -o tests/<span class="hljs-number">03</span>_arithmetics tests/<span class="hljs-number">03</span>_arithmetics.o
+
+$ ./tests/<span class="hljs-number">03</span>_arithmetics
+<span class="hljs-number">3</span>
+<span class="hljs-number">1</span>
+        </code></pre>
+    <p>The <code>-r</code> subcommand allows you to run the program after successful compilation:</p>
+    <pre><code class="lang-console">$ ./musc<span class="hljs-selector-class">.py</span> -c -r ./tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.musc</span>
+[INFO] Generating <span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] nasm -felf64 tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] ld -o tests/<span class="hljs-number">03</span>_arithmetics tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.o</span>
+[CMD] tests/<span class="hljs-number">03</span>_arithmetics
+<span class="hljs-number">3</span>
+<span class="hljs-number">1</span>
+        </code></pre>
+    <p>The <code>-o</code> subcommand allows you to customize the output path:</p>
+    <pre><code class="lang-console">$ mkdir output &amp;&amp; ./musc.py -c -o output/ ./tests/<span class="hljs-number">03</span>_arithmetics.musc
+[INFO] Generating <span class="hljs-number">03</span>_arithmetics.asm
+[CMD] nasm -felf64 output/<span class="hljs-number">03</span>_arithmetics.asm
+[CMD] ld -o output/<span class="hljs-number">03</span>_arithmetics output/<span class="hljs-number">03</span>_arithmetics.o
+
+$ ls output/
+<span class="hljs-number">03</span>_arithmetics*  <span class="hljs-number">03</span>_arithmetics.asm  <span class="hljs-number">03</span>_arithmetics.o
+        </code></pre>
+    <p>Or as a file:</p>
+    <pre><code class="lang-console">$ ./musc.py -c -o ./output ./tests/<span class="hljs-number">03</span>_arithmetics.musc
+[INFO] Generating output.asm
+[<span class="hljs-keyword">CMD</span><span class="bash">] nasm -felf64 ./output.asm
+</span>[<span class="hljs-keyword">CMD</span><span class="bash">] ld -o ./output ./output.o
+</span>[<span class="hljs-keyword">CMD</span><span class="bash">] ./output
+
+</span>$ ls
+output*  output.asm  output.o  assets/  LICENCE  musc.py*  README.md  test.py*  tests/
+        </code></pre>
+    <p>You can chain the <code>-r</code> and <code>-o</code> subcommands:</p>
+    <pre><code class="lang-console">$ mkdir output &amp;&amp; ./musc<span class="hljs-selector-class">.py</span> -c -r -o output/ ./tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.musc</span>
+[INFO] Generating <span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] nasm -felf64 output/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] ld -o output/<span class="hljs-number">03</span>_arithmetics output/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.o</span>
+[CMD] output/<span class="hljs-number">03</span>_arithmetics
+<span class="hljs-number">3</span>
+<span class="hljs-number">1</span>
+        </code></pre>
+    <h3 id="testing">> Testing</h3>
+    <p>Test cases are located in <a href="./tests/">./tests/</a> folder. The <code>*.txt</code> files are the expected
+        outputs of the corresponding programs.</p>
+    <p>However, you can choose in which folder the tests should be executed with the <code>-f</code> subcommand:</p>
+    <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -f &lt;folder&gt;
+        </code></pre>
+    <p>Run <a href="./test.py">./test.py</a> script with the <code>-h</code> subcommand to print more info on the stdout
+        (default, if no subcommand is provided):</p>
+    <pre><code class="lang-console">Usage: ./test.py [OPTIONS] [SUBCOMMAND]
+OPTIONS:
+    -f &lt;<span class="hljs-built_in">folder</span>&gt; Folder <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> tests. (Default: ./tests/)
+SUBCOMMANDS:
+    -t          Run <span class="hljs-keyword">the</span> tests.
+    -r          Record expected output <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> tests.
+    -c          Clean <span class="hljs-keyword">the</span> <span class="hljs-built_in">directory</span>.
+    -h          Print this message <span class="hljs-built_in">to</span> <span class="hljs-keyword">stdout</span> <span class="hljs-keyword">and</span> exit <span class="hljs-keyword">with</span> <span class="hljs-number">0</span> code.(Default when no subcommand is provided)
+        </code></pre>
+    <p>Run <a href="./test.py">./test.py</a> script with the <code>-t</code> subcommand to execute the programs and
+        assert their outputs:</p>
+    <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -t
+        </code></pre>
+    <p>To update expected output files run the <code>-r</code> subcommand:</p>
+    <pre><code class="lang-console">$ ./<span class="hljs-keyword">test</span>.py -<span class="hljs-built_in">r</span>
+        </code></pre>
+    <p>The <a href="./examples/">./examples/</a> contains programs that are meant for showcasing the language rather
+        then testing it:</p>
+    <pre><code class="lang-console">$ ./<span class="hljs-keyword">test</span>.py -f ./examples/ -<span class="hljs-built_in">r</span>
+        </code></pre>
+    <p>To clean the folder from the <code>*.asm</code> <code>*.o</code> and
+        <code>binary* (ELF 64-bit LSB executable)</code>, you can run the <code>-c</code> subcommand:</p>
+    <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -c && ./test<span class="hljs-selector-class">.py</span> -f ./examples/ -c
+        </code></pre>
+    <h3 id="usage">> Usage</h3>
+    <p>If you wanna use the Musc compiler separately from its code base you only need two things:</p>
+    <ul>
+        <li><a href="./musc.py">./musc.py</a> - the compiler itself,</li>
+        <li><a href="./std/">./std/</a> - the standard library.</li>
+    </ul>
+    <p>By default the compiler searches files to include in <code>./</code> and <code>./std/</code>. You can add more
+        search paths via the <code>-I</code> flag before the subcommand:
+        <code>./musc.py -I &lt;custom-path&gt; -r ...</code>. See <code>./musc.py help</code> for more info.</p>
+    <h2 id="language-reference">Language Reference</h2>
+    <hr>
+    <p>This is what the language supports so far.</p>
+    <h3 id="data-types">> Data Types</h3>
+    <ul>
+        <li><code>&lt;integer&gt;</code> - push the integer onto the stack. Right now the integer is anything that is
+            parsable by <a href="https://docs.python.org/3/library/functions.html#int">int</a> function.
+            <pre><code><span class="hljs-keyword">a</span> <span class="hljs-comment">-- a</span>
+        </code></pre>
+        </li>
+        <li><code>&lt;string&gt;</code> - push size and address of the string literal onto the stack. A string literal
+            is a sequence of character enclosed with <code>&quot;</code>.
+            <pre><code><span class="hljs-comment">"a"</span> -- <span class="hljs-comment">"a"</span>
+        </code></pre>
+        </li>
+    </ul>
+    <h3 id="built-in-words">> Built-in Words</h3>
+    <h4 id="stack-manipulation">>> Stack Manipulation</h4>
+    <ul>
+        <li>
+            <p><code>cp</code> - duplicate an element on top of the stack.</p>
+            <pre><code><span class="hljs-keyword">a</span> <span class="hljs-comment">-- a a</span>
+        </code></pre>
+        </li>
+        <li>
+            <p><code>pcp</code> - duplicate pair.</p>
+            <pre><code><span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> -- <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> <span class="hljs-selector-tag">a</span> b
+        </code></pre>
+        </li>
+        <li>
+            <p><code>=&gt;</code> - print the element on top of the stack to stdout and remove it from the stack.</p>
+            <pre><code><span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> -- a
+        </code></pre>
+        </li>
+        <li>
+            <p><code>~</code> - swap two elements on the top of the stack.</p>
+            <pre><code><span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> -- <span class="hljs-selector-tag">b</span> a
+        </code></pre>
+        </li>
+        <li>
+            <p><code>#</code> - drops the top element of the stack.</p>
+            <pre><code><span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> -- a
+        </code></pre>
+        </li>
+        <li>
+            <p><code>over</code> - copy the element below the top of the stack.</p>
+            <pre><code><span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> -- <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> a
+        </code></pre>
+        </li>
+    </ul>
+    <h4 id="comparison">>> Comparison</h4>
+    <ul>
+        <li><code>=</code> - checks if two elements on top of the stack are equal. Removes the elements from the stack
+            and pushes <code>1</code> if they are equal and <code>0</code> if they are not.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> == <span class="hljs-selector-tag">b</span> : bool]
+        </code></pre>
+        </li>
+        <li><code>!=</code> - checks if two elements on top of the stack are not equal.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> != <span class="hljs-selector-tag">b</span> : bool]
+        </code></pre>
+        </li>
+        <li><code>&gt;</code> - applies the greater comparison on top two elements.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &gt; <span class="hljs-selector-tag">b</span>  : bool]
+        </code></pre>
+        </li>
+        <li><code>&lt;</code> - applies the less comparison on top two elements.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &lt; <span class="hljs-selector-tag">b</span>  : bool]
+        </code></pre>
+        </li>
+        <li><code>&gt;=</code> - applies the greater or equal comparison on top two elements.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &gt;= <span class="hljs-selector-tag">b</span> : bool]
+        </code></pre>
+        </li>
+        <li><code>&lt;=</code> - applies the greater or equal comparison on top two elements.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &lt;= <span class="hljs-selector-tag">b</span> : bool]
+        </code></pre>
+        </li>
+    </ul>
+    <h4 id="arithmetic">>> Arithmetic</h4>
+    <ul>
+        <li><code>+</code> - sums up two elements on the top of the stack.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> + <span class="hljs-selector-tag">b</span>: int]
+        </code></pre>
+        </li>
+        <li><code>-</code> - subtracts the top of the stack from the element below.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> - <span class="hljs-selector-tag">b</span>: int]
+        </code></pre>
+        </li>
+        <li><code>*</code> - multiples two elements on top of the stack.
+            <pre><code class="lang-c">[<span class="hljs-string">a:</span> <span class="hljs-keyword">int</span>] [<span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] -- [a * <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>]
+        </code></pre>
+        </li>
+        <li><code>mod</code> - perform <a href="https://en.wikipedia.org/wiki/Euclidean_division">Euclidean division</a>
+            between two elements on top of the stack.
+            <pre><code class="lang-c">[<span class="hljs-string">a:</span> <span class="hljs-keyword">int</span>] [<span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] -- [a / <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] [a % <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>]
+        </code></pre>
+        </li>
+    </ul>
+    <h4 id="bitwise">>> Bitwise</h4>
+    <ul>
+        <li><code>&gt;&gt;</code> - right bit shift.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &gt;&gt; <span class="hljs-selector-tag">b</span>: int]
+        </code></pre>
+        </li>
+        <li><code>&lt;&lt;</code> - left bit shift.
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &lt;&lt; <span class="hljs-selector-tag">b</span>: int]
+        </code></pre>
+        </li>
+        <li><code>or</code> - bit <code>or</code>.
+            <pre><code class="lang-c">[<span class="hljs-string">a:</span> <span class="hljs-keyword">int</span>] [<span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] -- [a | <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>]
+        </code></pre>
+        </li>
+        <li><code>&amp;</code> - bit <code>and</code>.
+            <pre><code class="lang-c">[<span class="hljs-string">a:</span> <span class="hljs-keyword">int</span>] [<span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] -- [a & <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>]
+        </code></pre>
+        </li>
+    </ul>
+    <h3 id="control-flow">> Control Flow</h3>
+    <h4 id="if-else-condition">>> if-else condition</h4>
+    <pre><code class="lang-c"><span class="hljs-symbol">&lt;condition&gt;</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-symbol">&lt;body&gt;</span>
+<span class="hljs-keyword">else</span> <span class="hljs-symbol">&lt;condition&gt;</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-symbol">&lt;body&gt;</span>
+<span class="hljs-keyword">else</span>
+    <span class="hljs-symbol">&lt;body&gt;</span>
+end
+        </code></pre>
+    <h4 id="while-loop">>> while loop</h4>
+    <pre><code class="lang-v"><span class="hljs-keyword">while</span> &lt;condition&gt; <span class="hljs-keyword">do</span>
+    &lt;<span class="hljs-keyword">body</span>&gt;
+<span class="hljs-keyword">end</span>
+        </code></pre>
+    <h4 id="memory">>> Memory</h4>
+    <ul>
+        <li>
+            <p><code>mem</code> - pushes the address of the beginning of the memory where the stack can be read and
+                written.</p>
+        </li>
+        <li>
+            <p><code>&amp;s</code> - store a given byte at the given address.</p>
+        </li>
+        <li>
+            <p><code>&amp;l</code> - load a byte from the given address.</p>
+        </li>
+    </ul>
+    <h4 id="system">>> System</h4>
+    <ul>
+        <li><code>sys&lt;n&gt;</code> - perform a syscall with n arguments where n is in range <code>[0..6]</code>.
+            (<code>sys0</code>, <code>sys1</code>, ..., <code>sys6</code>)</li>
+    </ul>
+    <h3 id="macros">> Macros</h3>
+    <p>Define a new <code>&lt;keyword&gt;</code> that expands into a sequence of <code>&lt;tokens&gt;</code> during the
+        compilation.</p>
+    <p>An example with the keyword <code>fmt</code> and as tokens <code>1 1 sys3</code>:</p>
+    <pre><code class="lang-v"><span class="hljs-function"><span class="hljs-keyword">macro</span> <span class="hljs-title">fmt</span></span>
+    <span class="hljs-number">1</span> <span class="hljs-number">1</span> sys3
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-string">"Hello, World!\n"</span> fmt
+-- returns <span class="hljs-string">"Hello, World!"</span>
+        </code></pre>
+    <h3 id="include">> Include</h3>
+    <p>Include tokens of file <code>file.musc</code></p>
+    <pre><code class="lang-v"><span class="hljs-keyword">use</span> <span class="hljs-string">"file.musc"</span>
+        </code></pre>
+    <h2 id="faq">FAQ</h2>
+    <hr>
+    <p>Why would you use a <a href="https://en.wikipedia.org/wiki/Stack-oriented_programming">stack-oriented
+            language</a>, and is there any practical advantages of such a paradigm ?</p>
+    <ul>
+        <li>
+            <p>CPU Time </p>
+        </li>
+        <li>
+            <p><a href="https://en.wikipedia.org/wiki/Memory_leak">Memory leak</a> </p>
+        </li>
+        <li>
+            <p><a href="https://en.wikipedia.org/wiki/Fragmentation_of_memory">Fragmentation</a> </p>
+        </li>
+        <li>
+            <p><a href="https://www.cs.cornell.edu/courses/cs3110/2009fa/Lectures/lec24.html">Locality</a></p>
+        </li>
+    </ul>
+    <p>(<a
+            href="https://stackoverflow.com/questions/5589999/why-use-a-stack-oriented-language/45818678#45818678">source</a>
+        for full answers)</p>
+
+</body>
+
+</html>

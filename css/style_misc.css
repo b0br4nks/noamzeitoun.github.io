@@ -27,13 +27,14 @@ body {
     overflow-wrap: break-word;
     padding-bottom: 1.5em;
     padding-top: 1.5em;
-    background: #F3F2EF;
-    color: #000000;
+    background: #fff;
+    color: rgb(36, 41, 46);
 }
 
 .container {
     padding: 1em 20em;
 }
+
 
 @media(max-width: 1024px) {
     .container {

@@ -32,8 +32,8 @@ body {
     padding-bottom: 1.5em;
     padding-top: 1.5em;
     /* background gradient */
-    background: #F3F2EF;
-    color: #000000;
+    background: #fff;
+    color: rgb(36, 41, 46);
 }
 
 .container {
