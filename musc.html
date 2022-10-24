@@ -33,7 +33,7 @@
             <-- back</a>
                 <ul>
                     <li><a href="#stack-oriented">Stack-Oriented</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
+                    <li><a href="#milestones">Milestones</a></li>
                     <li><a href="#examples">Examples</a></li>
                     <li><a href="#quick-start">Quick Start</a>
                         <ul>
@@ -47,6 +47,11 @@
                     <li><a href="#language-reference">Language Reference</a>
                         <ul>
                             <li><a href="#data-types">Data Types</a></li>
+                                <ul>
+                                    <li><a href="#integer">Integer</a></li>
+                                    <li><a href="#string">String</a></li>
+                                    <li><a href="#character">Character</a></li>
+                                </ul>
                             <li><a href="#built-in-words">Built-in Words</a>
                                 <ul>
                                     <li><a href="#stack-manipulation">Stack Manipulation</a></li>
@@ -74,7 +79,7 @@
         closely related to that of <a
             href="https://en.wikipedia.org/wiki/Concatenative_programming_language">concatenative languages</a>, most of
         which are stack-based.</p>
-    <h2 id="roadmap">Milestones</h2>
+    <h2 id="milestones">Milestones</h2>
     <hr>
     <p><span style="color: green;">●</span> Compiled (<a href="https://en.wikipedia.org/wiki/Compiled_language">Compiled
             language</a>)</p>
@@ -95,8 +100,8 @@
         </code></pre>
     <p>Two simple programs:</p>
     <ul>
-        <li>the first one prints numbers from 10 to 0 in descending order (multi-line example);</li>
-        <li>the second one prints numbers from 0 to 10 in ascending order (one line example);</li>
+        <li>the first one prints numbers from <code>10</code> to <code>0</code> in descending order (multi-line example);</li>
+        <li>the second one prints numbers from <code>0</code> to <code>10</code> in ascending order (one line example);</li>
     </ul>
     <p>descending order</p>
     <pre><code class="lang-v"><span class="hljs-number">10</span> <span class="hljs-keyword">while</span> cp -<span class="hljs-number">1</span> &gt; <span class="hljs-keyword">do</span>
@@ -243,18 +248,40 @@ SUBCOMMANDS:
     <hr>
     <p>This is what the language supports so far.</p>
     <h3 id="data-types">> Data Types</h3>
+    <h4 id="integer">>> Integer</h4>
+    <p>Currently an integer is anything that is parsable by <a href="https://docs.python.org/3/library/functions.html#int">int</a> function of Python. When the compiler encounters an integer it pushes it onto the data stack for processing by the relevant operations.</p>
+    <p>Example:</p>
+    <pre><code><span class="hljs-keyword">1 2 +</span>
+        </code></pre>
+    <p>The code above pushes <code>1</code> and <code>2</code> onto the data stack and sums them up with <code>+</code> operation.</p>
+    <h4 id="string">>> String</h4>
+    <p>
+        Currently a string is any sequence of bytes sandwiched between two <code>"</code>. No newlines inside of the strings are allowed. Escaping is done by <a href="https://docs.python.org/3/library/codecs.html#text-encodings">unicode_escape codec</a> of Python. No way to escape <code>"</code> themselves for now. No special support for Unicode is provided right now too, it's just a sequence of bytes.
+    </p>
+    <p>When the compiler encounters a string:</p>
     <ul>
-        <li><code>&lt;integer&gt;</code> - push the integer onto the stack. Right now the integer is anything that is
-            parsable by <a href="https://docs.python.org/3/library/functions.html#int">int</a> function.
-            <pre><code><span class="hljs-keyword">a</span> <span class="hljs-comment">-- a</span>
-        </code></pre>
-        </li>
-        <li><code>&lt;string&gt;</code> - push size and address of the string literal onto the stack. A string literal
-            is a sequence of character enclosed with <code>&quot;</code>.
-            <pre><code><span class="hljs-comment">"a"</span> -- <span class="hljs-comment">"a"</span>
-        </code></pre>
-        </li>
+        <li>1. the size of the string in bytes is pushed onto the data stack,</li>
+        <li>2. the bytes of the string are copied somewhere into the memory (the exact location is implementation specific),</li>
+        <li>3. the pointer to the beginning of the string is pushed onto the data stack.</li>
     </ul>
+    <p>Thus, a single string pushes two values onto the data stack: the size and the pointer.</p>
+    <p>Example:</p>
+    <pre><code><span class="hljs-keyword">use "std.musc"</span>
+
+<span class="hljs-keyword">"Hello, World!\n" fmt</span>
+    </code></pre>
+    <p>
+        The <code>fmt</code> macro from <code>std.musc</code> module expects two values on the data stack: the size of the buffer it needs to print to stdout and the pointer to the beginning of the buffer. Both of the values are provided by the string <code>"Hello, World!\n"</code>.
+    </p>
+    <h4 id="character">>> Character</h4>
+    <p>
+        Currently a character is a single byte sandwiched between two <code>'</code>. Escaping is done by <a href="https://docs.python.org/3/library/codecs.html#text-encodings">unicode_escape codec</a> of Python. No way to escape <code>'</code> themselves for now. No special support for Unicode is provided right now too.
+    </p>
+    <p>When compiler encounters a character it pushes its value as an integer onto the stack.</p>
+    <p>Example:</p>
+    <pre><code><span class="hljs-keyword">'X' =></span>
+            </code></pre>
+    <p>This program pushes integer <code>88</code> onto the stack (since the ASCII code of letter <code>X</code> is <code>88</code>) and prints it with the <code>=></code> operation.</p>
     <h3 id="built-in-words">> Built-in Words</h3>
     <h4 id="stack-manipulation">>> Stack Manipulation</h4>
     <ul>
@@ -312,7 +339,7 @@ SUBCOMMANDS:
             <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &gt;= <span class="hljs-selector-tag">b</span> : bool]
         </code></pre>
         </li>
-        <li><code>&lt;=</code> - applies the greater or equal comparison on top two elements.
+        <li><code>&lt;=</code> - applies the less or equal comparison on top two elements.
             <pre><code class="lang-c">[<span class="hljs-selector-tag">a</span>: int] [<span class="hljs-selector-tag">b</span>: int] -- [<span class="hljs-selector-tag">a</span> &lt;= <span class="hljs-selector-tag">b</span> : bool]
         </code></pre>
         </li>
@@ -386,7 +413,7 @@ end
     </ul>
     <h4 id="system">>> System</h4>
     <ul>
-        <li><code>sys&lt;n&gt;</code> - perform a syscall with n arguments where n is in range <code>[0..6]</code>.
+        <li><code>sys&lt;n&gt;</code> - perform a syscall with n arguments where <code>n</code> is in range <code>[0..6]</code>.
             (<code>sys0</code>, <code>sys1</code>, ..., <code>sys6</code>)</li>
     </ul>
     <h3 id="macros">> Macros</h3>
