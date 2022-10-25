@@ -21,7 +21,8 @@
 <body>
     <div align="center">
         <p>
-            <img width="200" src="assets/musc_logo_solo.png">
+            <img id="logo1" width="200" src="assets/musc_logo_solo.png">
+            <img id="logo2" width="200" src="assets/musc_logo_solo_light.png">
         </p>
         <h1>The Musc Programming Language</h1>
 
@@ -29,6 +30,8 @@
         <p style="font-size: small;">**The development of this language is in progress!</p><br>
     </div>
     <div class="toc">
+        <!-- button to switch to dark theme -->
+        <button id="dark-mode" onclick="switchTheme()"></button><br>
         <a href="/index.html">
             <-- back</a>
                 <ul>
@@ -452,7 +455,7 @@ end
     <p>(<a
             href="https://stackoverflow.com/questions/5589999/why-use-a-stack-oriented-language/45818678#45818678">source</a>
         for full answers)</p>
-
+<script src="./js/main.js"></script>
 </body>
 
 </html>
