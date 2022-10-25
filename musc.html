@@ -107,13 +107,17 @@
         <li>the second one prints numbers from <code>0</code> to <code>10</code> in ascending order (one line example);</li>
     </ul>
     <p>descending order</p>
-    <pre><code class="lang-v"><span class="hljs-number">10</span> <span class="hljs-keyword">while</span> cp -<span class="hljs-number">1</span> &gt; <span class="hljs-keyword">do</span>
+    <pre><code class="lang-v"><span class="hljs-keyword">use</span> <span class="hljs-string">"std.musc"</span>
+
+<span class="hljs-number">10</span> <span class="hljs-keyword">while</span> cp -<span class="hljs-number">1</span> &gt; <span class="hljs-keyword">do</span>
     cp =&gt;
     <span class="hljs-number">1</span> -
 <span class="hljs-keyword">end</span>
         </code></pre>
     <p>ascending order</p>
-    <pre><code class="lang-v"><span class="hljs-symbol">0 </span><span class="hljs-keyword">while</span> cp <span class="hljs-number">11</span> &lt; do cp =&gt; <span class="hljs-number">1</span> + <span class="hljs-keyword">end</span>
+    <pre><code class="lang-v"><span class="hljs-keyword">use</span> <span class="hljs-string">"std.musc"</span>
+
+<span class="hljs-symbol">0 </span><span class="hljs-keyword">while</span> cp <span class="hljs-number">11</span> &lt; do cp =&gt; <span class="hljs-number">1</span> + <span class="hljs-keyword">end</span>
         </code></pre>
     <h2 id="quick-start">Quick Start</h2>
     <hr>
@@ -294,11 +298,6 @@ SUBCOMMANDS:
         </code></pre>
         </li>
         <li>
-            <p><code>pcp</code> - duplicate pair.</p>
-            <pre><code><span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> -- <span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> <span class="hljs-selector-tag">a</span> b
-        </code></pre>
-        </li>
-        <li>
             <p><code>=&gt;</code> - print the element on top of the stack to stdout and remove it from the stack.</p>
             <pre><code><span class="hljs-selector-tag">a</span> <span class="hljs-selector-tag">b</span> -- a
         </code></pre>
@@ -361,7 +360,7 @@ SUBCOMMANDS:
             <pre><code class="lang-c">[<span class="hljs-string">a:</span> <span class="hljs-keyword">int</span>] [<span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] -- [a * <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>]
         </code></pre>
         </li>
-        <li><code>mod</code> - perform <a href="https://en.wikipedia.org/wiki/Euclidean_division">Euclidean division</a>
+        <li><code>divmod</code> - perform <a href="https://en.wikipedia.org/wiki/Euclidean_division">Euclidean division</a>
             between two elements on top of the stack.
             <pre><code class="lang-c">[<span class="hljs-string">a:</span> <span class="hljs-keyword">int</span>] [<span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] -- [a / <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>] [a % <span class="hljs-string">b:</span> <span class="hljs-keyword">int</span>]
         </code></pre>
