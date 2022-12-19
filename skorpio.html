@@ -68,7 +68,7 @@
                                     <li><a href="#system">System</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#macros">Macros</a></li>
+                            <li><a href="#functions">Functions</a></li>
                             <li><a href="#include">Include</a></li>
                         </ul>
                     </li>
@@ -99,7 +99,7 @@
     <p>&quot;Hello, World!&quot;:</p>
     <pre><code class="lang-v"><span class="hljs-keyword">use</span> <span class="hljs-string">"std.sko"</span>
     
-<span class="hljs-string">"Hello, World!\n"</span> fmt
+<span class="hljs-string">"Hello, World!\n"</span> stdout fmt
         </code></pre>
     <p>Two simple programs:</p>
     <ul>
@@ -128,6 +128,7 @@ Usage: ./skorpio.py [<span class="hljs-keyword">OPTIONS</span>] &lt;SUBCOMMAND&g
 OPTIONS
      -dbg                     <span class="hljs-keyword">Enable debug mode</span> 
      -I           &lt;<span class="hljs-keyword">path</span>&gt;      Add the path to the include search list
+     -E   &lt;<span class="hljs-keyword">expansion-limit</span>&gt;   Function and use expansion limit. (Default 1000)
     
 SUBCOMMANDS
      -s           &lt;<span class="hljs-keyword">file</span>&gt;      <span class="hljs-keyword">Simulate</span> the <span class="hljs-keyword">program</span>
@@ -137,11 +138,12 @@ SUBCOMMANDS
 OPTIONS
      -r                       <span class="hljs-keyword">Run</span> the <span class="hljs-keyword">program</span> after successful compilation
      -o         &lt;<span class="hljs-keyword">file</span>|<span class="hljs-keyword">dir</span>&gt;    Customize the output path
+     --silent                 Silent mode. Hide infos about compilation phases
         </code></pre>
     <h3 id="simulation">> Simulation</h3>
     <p>The simulation is an interpretation of the program</p>
-    <pre><code class="lang-console">$ cat ./tests/<span class="hljs-number">03</span>_arithmetics.sko
--- <span class="hljs-number">03</span>_arithmetics.sko
+    <pre><code class="lang-console">$ cat ./tests/arithmetics.sko
+-- arithmetics.sko
     
 -- add
 <span class="hljs-number">1</span> <span class="hljs-number">2</span> + =&gt;
@@ -149,7 +151,7 @@ OPTIONS
 -- substract
 <span class="hljs-number">3</span> <span class="hljs-number">2</span> - =&gt;
 
-$ ./skorpio.py -s ./tests/<span class="hljs-number">03</span>_arithmetics.sko
+$ ./skorpio.py -s ./tests/arithmetics.sko
 <span class="hljs-number">3</span>
 <span class="hljs-number">1</span>
         </code></pre>
@@ -157,90 +159,79 @@ $ ./skorpio.py -s ./tests/<span class="hljs-number">03</span>_arithmetics.sko
     <p>The compilation generates assembly code, compiles it with <a href="https://www.nasm.us/">nasm</a>, and then links
         it with <a href="https://www.gnu.org/software/outpututils/">GNU ld</a>. Both should be available in your
         <code>$PATH</code>.</p>
-    <pre><code class="lang-console">$ cat ./tests/<span class="hljs-number">03</span>_arithmetics.sko
--- <span class="hljs-number">03</span>_arithmetics.sko
+    <pre><code class="lang-console">$ cat ./tests/arithmetics.sko
+-- arithmetics.sko
 -- add
 <span class="hljs-number">1</span> <span class="hljs-number">2</span> + =&gt;
 -- substract
 <span class="hljs-number">3</span> <span class="hljs-number">2</span> - =&gt;
 
-$ ./skorpio.py -c ./tests/<span class="hljs-number">03</span>_arithmetics.sko
-[INFO] Generating <span class="hljs-number">03</span>_arithmetics.asm
-[CMD] nasm -felf64 tests/<span class="hljs-number">03</span>_arithmetics.asm
-[CMD] ld -o tests/<span class="hljs-number">03</span>_arithmetics tests/<span class="hljs-number">03</span>_arithmetics.o
+$ ./skorpio.py -c ./tests/arithmetics.sko
+[INFO] Generating arithmetics.asm
+[CMD] nasm -felf64 tests/arithmetics.asm
+[CMD] ld -o tests/arithmetics tests/arithmetics.o
 
-$ ./tests/<span class="hljs-number">03</span>_arithmetics
+$ ./tests/arithmetics
 <span class="hljs-number">3</span>
 <span class="hljs-number">1</span>
         </code></pre>
     <p>The <code>-r</code> subcommand allows you to run the program after successful compilation:</p>
-    <pre><code class="lang-console">$ ./skorpio<span class="hljs-selector-class">.py</span> -c -r ./tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.sko</span>
-[INFO] Generating <span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
-[CMD] nasm -felf64 tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
-[CMD] ld -o tests/<span class="hljs-number">03</span>_arithmetics tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.o</span>
-[CMD] tests/<span class="hljs-number">03</span>_arithmetics
+    <pre><code class="lang-console">$ ./skorpio<span class="hljs-selector-class">.py</span> -c -r ./tests/arithmetics<span class="hljs-selector-class">.sko</span>
+[INFO] Generating arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] nasm -felf64 tests/arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] ld -o tests/arithmetics tests/arithmetics<span class="hljs-selector-class">.o</span>
+[CMD] tests/arithmetics
 <span class="hljs-number">3</span>
 <span class="hljs-number">1</span>
         </code></pre>
     <p>The <code>-o</code> subcommand allows you to customize the output path:</p>
-    <pre><code class="lang-console">$ mkdir output &amp;&amp; ./skorpio.py -c -o output/ ./tests/<span class="hljs-number">03</span>_arithmetics.sko
-[INFO] Generating <span class="hljs-number">03</span>_arithmetics.asm
-[CMD] nasm -felf64 output/<span class="hljs-number">03</span>_arithmetics.asm
-[CMD] ld -o output/<span class="hljs-number">03</span>_arithmetics output/<span class="hljs-number">03</span>_arithmetics.o
+    <pre><code class="lang-console">$ mkdir output &amp;&amp; ./skorpio.py -c -o output/ ./tests/arithmetics.sko
+[INFO] Generating arithmetics.asm
+[CMD] nasm -felf64 output/arithmetics.asm
+[CMD] ld -o output/arithmetics output/arithmetics.o
 
 $ ls output/
-<span class="hljs-number">03</span>_arithmetics*  <span class="hljs-number">03</span>_arithmetics.asm  <span class="hljs-number">03</span>_arithmetics.o
+arithmetics*  arithmetics.asm  arithmetics.o
         </code></pre>
     <p>Or as a file:</p>
-    <pre><code class="lang-console">$ ./skorpio.py -c -o ./output ./tests/<span class="hljs-number">03</span>_arithmetics.sko
+    <pre><code class="lang-console">$ ./skorpio.py -c -o ./output ./tests/arithmetics.sko
 [INFO] Generating output.asm
 [<span class="hljs-keyword">CMD</span><span class="bash">] nasm -felf64 ./output.asm
 </span>[<span class="hljs-keyword">CMD</span><span class="bash">] ld -o ./output ./output.o
 </span>[<span class="hljs-keyword">CMD</span><span class="bash">] ./output
-
 </span>$ ls
 output*  output.asm  output.o  assets/  LICENCE  skorpio.py*  README.md  test.py*  tests/
         </code></pre>
     <p>You can chain the <code>-r</code> and <code>-o</code> subcommands:</p>
-    <pre><code class="lang-console">$ mkdir output &amp;&amp; ./skorpio<span class="hljs-selector-class">.py</span> -c -r -o output/ ./tests/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.sko</span>
-[INFO] Generating <span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
-[CMD] nasm -felf64 output/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.asm</span>
-[CMD] ld -o output/<span class="hljs-number">03</span>_arithmetics output/<span class="hljs-number">03</span>_arithmetics<span class="hljs-selector-class">.o</span>
-[CMD] output/<span class="hljs-number">03</span>_arithmetics
+    <pre><code class="lang-console">$ mkdir output &amp;&amp; ./skorpio<span class="hljs-selector-class">.py</span> -c -r -o output/ ./tests/arithmetics<span class="hljs-selector-class">.sko</span>
+[INFO] Generating arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] nasm -felf64 output/arithmetics<span class="hljs-selector-class">.asm</span>
+[CMD] ld -o output/arithmetics output/arithmetics<span class="hljs-selector-class">.o</span>
+[CMD] output/arithmetics
 <span class="hljs-number">3</span>
 <span class="hljs-number">1</span>
         </code></pre>
     <h3 id="testing">> Testing</h3>
-    <p>Test cases are located in <code>./tests/</code> folder. The <code>*.txt</code> files are the expected
-        outputs of the corresponding programs.</p>
-    <p>However, you can choose in which folder the tests should be executed with the <code>-f</code> subcommand:</p>
-    <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -f &lt;folder&gt;
+    <p>Test cases are located in <code>./tests/</code> folder. The <code>*.txt</code> files contain inputs (command line arguments, stdin) and expected outputs (exit code, stdout, stderr) of the corresponding programs.</p>
+    <p>Run <code>./test.py</code> script to execute the programs and assert their outputs:</p>
+    <pre><code class="lang-console">$ ./test.py run
         </code></pre>
-    <p>Run <code>./test.py</code> script with the <code>-h</code> subcommand to print more info on the stdout
-        (default, if no subcommand is provided):</p>
-    <pre><code class="lang-console">Usage: ./test.py [OPTIONS] [SUBCOMMAND]
-OPTIONS:
-    -f &lt;<span class="hljs-built_in">folder</span>&gt; Folder <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> tests. (Default: ./tests/)
-SUBCOMMANDS:
-    -t          Run <span class="hljs-keyword">the</span> tests.
-    -r          Record expected output <span class="hljs-keyword">of</span> <span class="hljs-keyword">the</span> tests.
-    -c          Clean <span class="hljs-keyword">the</span> <span class="hljs-built_in">directory</span>.
-    -h          Print this message <span class="hljs-built_in">to</span> <span class="hljs-keyword">stdout</span> <span class="hljs-keyword">and</span> exit <span class="hljs-keyword">with</span> <span class="hljs-number">0</span> code.(Default when no subcommand is provided)
+    <p>To update expected outputs of the programs run the update subcommand:</p>
+    <pre><code class="lang-console">$ ./<span class="hljs-keyword">test</span>.py <span class="hljs-built_in">update</span>
         </code></pre>
-    <p>Run <code>./test.py</code> script with the <code>-t</code> subcommand to execute the programs and
-        assert their outputs:</p>
-    <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -t
+    <p>To update expected command line arguments and stdin of a specific
+        program run the update input <code>&lt;path/to/program.sko&gt;</code> subcommand:</p>
+    <pre><code class="lang-console">$ ./test.py update input ./tests/argv.sko <span class="hljs-built_in">&lt;new&gt; &lt;cmd&gt; &lt;args&gt;</span>
+[INFO] Provide the stdin for the test case. Press ^D when you are done...
+Hello, World
+^D
+[INFO] Saving input to ./tests/argv.txt</span>
         </code></pre>
-    <p>To update expected output files run the <code>-r</code> subcommand:</p>
-    <pre><code class="lang-console">$ ./<span class="hljs-keyword">test</span>.py -<span class="hljs-built_in">r</span>
-        </code></pre>
-    <p>The <code>./examples/</code> contains programs that are meant for showcasing the language rather
-        then testing it:</p>
-    <pre><code class="lang-console">$ ./<span class="hljs-keyword">test</span>.py -f ./examples/ -<span class="hljs-built_in">r</span>
-        </code></pre>
-    <p>To clean the folder from the <code>*.asm</code> <code>*.o</code> and
-        <code>binary* (ELF 64-bit LSB executable)</code>, you can run the <code>-c</code> subcommand:</p>
-    <pre><code class="lang-console">$ ./test<span class="hljs-selector-class">.py</span> -c && ./test<span class="hljs-selector-class">.py</span> -f ./examples/ -c
+    <p>The <code>./examples/</code> folder contains programs that are meant for showcasing
+        the language rather then testing it:</p>
+    <pre><code class="lang-console">$ ./test.py run ./examples/
+$ ./test.py update input ./examples/name.sko
+$ ./test.py update output ./examples/
         </code></pre>
     <h3 id="usage">> Usage</h3>
     <p>If you wanna use the Skorpio compiler separately from its code base you only need two things:</p>
@@ -275,7 +266,7 @@ SUBCOMMANDS:
     <p>Example:</p>
     <pre><code><span class="hljs-keyword">use "std.sko"</span>
 
-<span class="hljs-keyword">"Hello, World!\n" fmt</span>
+<span class="hljs-keyword">"Hello, World!\n" stdout fmt</span>
     </code></pre>
     <p>
         The <code>fmt</code> macro from <code>std.sko</code> module expects two values on the data stack: the size of the buffer it needs to print to stdout and the pointer to the beginning of the buffer. Both of the values are provided by the string <code>"Hello, World!\n"</code>.
@@ -407,10 +398,24 @@ end
                 written.</p>
         </li>
         <li>
-            <p><code>&amp;s</code> - store a given byte at the given address.</p>
+            <p><code>&#42;s</code> - store a given byte at the given address.</p>
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">byte</span>: int] [<span class="hljs-selector-tag">place</span>: ptr] --
+            </code></pre>
         </li>
         <li>
             <p><code>&amp;l</code> - load a byte from the given address.</p>
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">place</span>: ptr] -- [<span class="hljs-selector-tag">byte</span>: int]
+            </code></pre>
+        </li>
+        <li>
+            <p><code>&#42;64</code> - store an 8-byte word at the address on the stack.</p>
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">byte</span>: int] [<span class="hljs-selector-tag">place</span>: ptr] --
+            </code></pre>
+        </li>
+        <li>
+            <p><code>&amp;64</code> - store an 8-byte word at the address on the stack.</p>
+            <pre><code class="lang-c">[<span class="hljs-selector-tag">place</span>: ptr] -- [<span class="hljs-selector-tag">byte</span>: int]
+            </code></pre>
         </li>
     </ul>
     <h4 id="system">>> System</h4>
@@ -418,16 +423,17 @@ end
         <li><code>sys&lt;n&gt;</code> - perform a syscall with n arguments where <code>n</code> is in range <code>[0..6]</code>.
             (<code>sys0</code>, <code>sys1</code>, ..., <code>sys6</code>)</li>
     </ul>
-    <h3 id="macros">> Macros</h3>
+    <h3 id="functions">> Functions</h3>
     <p>Define a new <code>&lt;keyword&gt;</code> that expands into a sequence of <code>&lt;tokens&gt;</code> during the
         compilation.</p>
     <p>An example with the keyword <code>fmt</code> and as tokens <code>1 1 sys3</code>:</p>
-    <pre><code class="lang-v"><span class="hljs-function"><span class="hljs-keyword">macro</span> <span class="hljs-title">fmt</span></span>
-    <span class="hljs-number">1</span> <span class="hljs-number">1</span> sys3
-<span class="hljs-keyword">end</span>
+    <pre><code class="lang-v">fn fmt
+    1 1 sys3
+end
 
-<span class="hljs-string">"Hello, World!\n"</span> fmt
--- returns <span class="hljs-string">"Hello, World!"</span>
+"Hello, World!\n" fmt
+
+-- returns "Hello, World!"
         </code></pre>
     <h3 id="include">> Include</h3>
     <p>Include tokens of file <code>file.sko</code></p>
