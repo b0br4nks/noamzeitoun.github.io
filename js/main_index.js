@@ -1,3 +1,1 @@
-function switchTheme() {
-    document.body.classList.toggle('dark');
-}
+const secret = '76861742061726520796f75206c6f6f6b696e6720666f723f203b29';

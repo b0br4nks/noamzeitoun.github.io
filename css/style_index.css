@@ -1,5 +1,5 @@
 a {
-    color: #0000ff;
+    color: rgb(61, 158, 255);
     text-decoration: none;
 }
 
@@ -31,9 +31,8 @@ body {
     overflow-wrap: break-word;
     padding-bottom: 1.5em;
     padding-top: 1.5em;
-    /* background gradient */
-    background: #fff;
-    color: rgb(36, 41, 46);
+    background: #131516;
+    color: rgb(206, 202, 195);
 }
 
 .container {
