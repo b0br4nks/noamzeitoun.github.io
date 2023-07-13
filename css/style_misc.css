@@ -1,5 +1,5 @@
 a {
-    color: rgb(61, 158, 255);
+    color: rgb(61, 50, 255);
     text-decoration: none;
 }
 
@@ -13,7 +13,7 @@ h2,
 h3,
 h4 {
     font-weight: normal;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 p {
@@ -23,20 +23,30 @@ p {
 }
 
 body {
-    font-family: 'Inconsolata', monospace;
+    font-family: "Inconsolata", monospace;
     overflow-wrap: break-word;
     padding-bottom: 1.5em;
     padding-top: 1.5em;
-    background: #131516;
-    color: rgb(206, 202, 195);
+    background: #ffffff;
+    color: #000000;
 }
 
 .container {
     padding: 1em 20em;
 }
 
+#logos {
+    display: flex;
+    justify-content: space-between;
+}
 
-@media(max-width: 1024px) {
+.logo-container {
+    flex: 1;
+    margin-top: 1em;
+    margin-right: 1em;
+}
+
+@media (max-width: 1024px) {
     .container {
         padding: 1em 6em 1em 6em;
     }
@@ -44,9 +54,18 @@ body {
     body {
         font-size: 1.1em;
     }
+
+    #logos {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-container {
+        margin-bottom: 1em;
+    }
 }
 
-@media(max-width: 430px) {
+@media (max-width: 430px) {
     .container {
         padding: 0.5em 2em;
     }
@@ -63,3 +82,6 @@ body {
 #about h3 {
     font-style: italic;
 }
+
+
+
