@@ -1,3 +1,108 @@
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+html, body {
+    /* height: 100%; */
+    margin: 0;
+    color: black;
+    font-size: 1em;
+}
+
+body {
+  font-family: "Inconsolata", monospace;
+  overflow-wrap: break-word;
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+  background-color: white;
+}
+
+em,
+#rank,
+#score,
+#solved_challenges {
+    color: firebrick;
+}
+
+.emb {
+    color: rgb(92, 92, 92);
+    font-size: 1em;
+    font-style: italic;
+}
+
+.bob_box {
+    background-color: rgba(107, 107, 107, 0.185);
+    font-size: 1em;
+    color: #ffffff;
+    padding: 0 .5em 0 .5em;
+    border-radius: 10px;
+    display: block;
+    align-self: center;
+}
+
+.box {
+    align-self: center;
+}
+
+.date {
+    color: green;
+    font-weight: bold;
+}
+
+/* class for code highlighting */
+.hljs {
+    font-size: 1em;
+    width: 42.3em;
+    background: rgba(107, 107, 107, 0.185) !important;
+    color: #ffffff !important;
+    border-radius: 10px;
+    display: flex;
+    align-self: center;
+}
+
+.hljs-type {
+    color: rgb(39, 61, 185) !important;
+}
+
+.hljs-string {
+    color: rgb(12, 82, 90) !important;
+}
+
+.hljs-built_in {
+    color: #580b67 !important;
+}
+
+.container {
+  padding: 1em 20em;
+}
+
+.containerlogo {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    /* align-items: left; */
+    justify-content: center;
+}
+
+#links a {
+    margin: 0 0.3em;
+}
+
+#projects p {
+  padding-left: 1em;
+}
+
 a {
     color: rgb(61, 50, 255);
     text-decoration: none;
@@ -8,92 +113,222 @@ a:hover {
     cursor: pointer;
 }
 
-h1 {
-    margin-top: 0;
-}
-
 h1,
 h2,
-h3,
-h4 {
-    font-weight: normal;
-    margin-bottom: 0;
+p,
+li {
+    /* color: black; */
+    font-family: 'Inconsolata', monospace;
 }
 
-p {
-    margin-top: 0.3em;
-    line-height: 140%;
-    margin-bottom: 0.3em;
+h1 {
+    color: firebrick;
 }
 
-body {
-    font-family: "Inconsolata", monospace;
-    overflow-wrap: break-word;
-    padding-bottom: 1.5em;
-    padding-top: 1.5em;
-    background: #ffffff;
-    color: #000000;
+h2 {
+    color: black;
 }
 
-.container {
-    padding: 1em 20em;
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (max-width: 1024px) {
+#logo {
+    width: 70%;
+    margin-bottom: 1em;
+    transition: 0.01s;
+    align-self: center;
+}
+
+
+#logo:hover {
+    animation: sbb 1s linear infinite;
+}
+
+@keyframes sbb {
+    0% {
+        filter: hue-rotate(0deg) saturate(100%);
+    }
+
+    5% {
+        filter: hue-rotate(90deg) saturate(100%);
+    }
+
+    10% {
+        filter: hue-rotate(180deg) saturate(100%);
+    }
+
+    15% {
+        filter: hue-rotate(270deg) saturate(100%);
+    }
+
+    20% {
+        filter: hue-rotate(360deg) saturate(100%);
+    }
+
+    25% {
+        filter: hue-rotate(450deg) saturate(100%);
+    }
+
+    30% {
+        filter: hue-rotate(540deg) saturate(100%);
+    }
+
+    35% {
+        filter: hue-rotate(630deg) saturate(100%);
+    }
+
+    40% {
+        filter: hue-rotate(720deg) saturate(100%);
+    }
+
+    45% {
+        filter: hue-rotate(810deg) saturate(100%);
+    }
+
+    50% {
+        filter: hue-rotate(900deg) saturate(100%);
+    }
+
+    55% {
+        filter: hue-rotate(990deg) saturate(100%);
+    }
+
+    60% {
+        filter: hue-rotate(1080deg) saturate(100%);
+    }
+
+    65% {
+        filter: hue-rotate(1170deg) saturate(100%);
+    }
+
+    70% {
+        filter: hue-rotate(1260deg) saturate(100%);
+    }
+
+    75% {
+        filter: hue-rotate(1350deg) saturate(100%);
+    }
+
+    80% {
+        filter: hue-rotate(1440deg) saturate(100%);
+    }
+
+    85% {
+        filter: hue-rotate(1530deg) saturate(100%);
+    }
+
+    90% {
+        filter: hue-rotate(1620deg) saturate(100%);
+    }
+
+    95% {
+        filter: hue-rotate(1710deg) saturate(100%);
+    }
+
+    100% {
+        filter: hue-rotate(1800deg) saturate(100%);
+    }
+}
+
+    #about {
+        margin-top: 2em;
+    }
+
+    #about h2 {
+        margin-bottom: 0.5em;
+    }
+
+    #about h3 {
+        font-style: italic;
+    }
+
+body.dark-theme {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* .dark-theme h1 { */
+/*   color: #ff6b6b; */
+/* } */
+
+.dark-theme a {
+    color: rgb(46, 113, 230);
+}
+
+.dark-theme h1 {
+    color: tomato;
+}
+
+.dark-theme li, .dark-theme h2, .dark-theme h3, .dark-theme h4 {
+    color: #fff;
+}
+
+
+
+@media (max-width: 1223px) {
     .container {
-        padding: 1em 6em 1em 6em;
+        padding: 1em 4em;
     }
 
     body {
-        font-size: 1.1em;
+        font-size: 1em;
+    }
+
+    #header {
+        text-align: center;
+    }
+
+    #links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1em;
+    }
+
+    #links a {
+        margin: 0.3em; 
     }
 }
 
 @media (max-width: 430px) {
-    .container {
-        padding: 0.5em 2em;
+    #logo {
+        width: 100%;
     }
 
     #header {
-        display: block !important;
+        text-align: center;
+    }
+
+    #links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 1em;
+    }
+
+    #links a {
+        margin: 0.3em;
+    }
+
+    .hljs {
+        font-size: 0.5em;
+        /* width: 100%; */
+    }
+
+    .bob_box {
+        color: white;
+        width: 100%;
+        font-size: .68em;
+    }
+
+    #logo {
+        max-width: 100%;
+    }
+
+    .container {
+        padding: 0.5em 2em;
     }
 }
-
-#header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-#links {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: row;
-}
-
-#links a {
-    margin-right: 1em;
-}
-
-#projects p {
-    padding-left: 1em;
-}
-
-#about {
-    margin-top: 2em;
-}
-
-#about h2 {
-    margin-bottom: 0.5em;
-}
-
-#about h3 {
-    font-style: italic;
-}
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
