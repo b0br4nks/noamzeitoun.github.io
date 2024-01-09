@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +16,6 @@
     <link rel="stylesheet" href="css/style_skorpio.css" />
     <title>Noam Zeitoun</title>
 </head>
-
 <body>
     <div class="top-items" align="center">
         <p>
@@ -25,8 +23,6 @@
             <img id="logo1" width="200" src="assets/skorpio_logo.png">
         </p>
         <h1>The Skorpio Programming Language</h1>
-
-
         <p style="font-size: small;">**The development of this language is in progress!</p><br>
     </div>
     <div class="toc">
@@ -108,7 +104,6 @@
     </ul>
     <p>descending order</p>
     <pre><code class="lang-v"><span class="hljs-keyword">use</span> <span class="hljs-string">"std.sko"</span>
-
 <span class="hljs-number">10</span> <span class="hljs-keyword">while</span> cp -<span class="hljs-number">1</span> &gt; <span class="hljs-keyword">do</span>
     cp =&gt;
     <span class="hljs-number">1</span> -
@@ -116,7 +111,6 @@
         </code></pre>
     <p>ascending order</p>
     <pre><code class="lang-v"><span class="hljs-keyword">use</span> <span class="hljs-string">"std.sko"</span>
-
 <span class="hljs-symbol">0 </span><span class="hljs-keyword">while</span> cp <span class="hljs-number">11</span> &lt; do cp =&gt; <span class="hljs-number">1</span> + <span class="hljs-keyword">end</span>
         </code></pre>
     <h2 id="quick-start">Quick Start</h2>
@@ -124,7 +118,6 @@
     <h3 id="help">> Help</h3>
     <pre><code class="lang-console">$ ./skorpio.py -<span class="hljs-built_in">h</span>
 Usage: ./skorpio.py [<span class="hljs-keyword">OPTIONS</span>] &lt;SUBCOMMAND&gt; [<span class="hljs-keyword">ARGS</span>]
-
 OPTIONS
      -dbg                     <span class="hljs-keyword">Enable debug mode</span> 
      -I           &lt;<span class="hljs-keyword">path</span>&gt;      Add the path to the include search list
@@ -150,7 +143,6 @@ OPTIONS
     
 -- substract
 <span class="hljs-number">3</span> <span class="hljs-number">2</span> - =&gt;
-
 $ ./skorpio.py -s ./tests/arithmetics.sko
 <span class="hljs-number">3</span>
 <span class="hljs-number">1</span>
@@ -165,12 +157,10 @@ $ ./skorpio.py -s ./tests/arithmetics.sko
 <span class="hljs-number">1</span> <span class="hljs-number">2</span> + =&gt;
 -- substract
 <span class="hljs-number">3</span> <span class="hljs-number">2</span> - =&gt;
-
 $ ./skorpio.py -c ./tests/arithmetics.sko
 [INFO] Generating arithmetics.asm
 [CMD] nasm -felf64 tests/arithmetics.asm
 [CMD] ld -o tests/arithmetics tests/arithmetics.o
-
 $ ./tests/arithmetics
 <span class="hljs-number">3</span>
 <span class="hljs-number">1</span>
@@ -189,7 +179,6 @@ $ ./tests/arithmetics
 [INFO] Generating arithmetics.asm
 [CMD] nasm -felf64 output/arithmetics.asm
 [CMD] ld -o output/arithmetics output/arithmetics.o
-
 $ ls output/
 arithmetics*  arithmetics.asm  arithmetics.o
         </code></pre>
@@ -265,7 +254,6 @@ $ ./test.py update output ./examples/
     <p>Thus, a single string pushes two values onto the data stack: the size and the pointer.</p>
     <p>Example:</p>
     <pre><code><span class="hljs-keyword">use "std.sko"</span>
-
 <span class="hljs-keyword">"Hello, World!\n" stdout fmt</span>
     </code></pre>
     <p>
@@ -430,9 +418,7 @@ end
     <pre><code class="lang-v">fn fmt
     1 1 sys3
 end
-
 "Hello, World!\n" fmt
-
 -- returns "Hello, World!"
         </code></pre>
     <h3 id="include">> Include</h3>
@@ -462,5 +448,4 @@ end
         for full answers)</p>
 <script src="./js/main.js"></script>
 </body>
-
 </html>

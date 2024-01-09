@@ -2,15 +2,16 @@ h1,
 h2,
 h3,
 h4 {
-  font-weight: normal;
-  margin-bottom: 0;
+    font-weight: normal;
+    margin-bottom: 0;
 }
 
 h1 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
-html, body {
+html,
+body {
     /* height: 100%; */
     margin: 0;
     color: black;
@@ -18,11 +19,11 @@ html, body {
 }
 
 body {
-  font-family: "Inconsolata", monospace;
-  overflow-wrap: break-word;
-  padding-bottom: 1.5em;
-  padding-top: 1.5em;
-  background-color: white;
+    font-family: "Inconsolata", monospace;
+    overflow-wrap: break-word;
+    padding-bottom: 1.5em;
+    padding-top: 1.5em;
+    background-color: white;
 }
 
 em,
@@ -81,7 +82,7 @@ em,
 }
 
 .container {
-  padding: 1em 20em;
+    padding: 1em 20em;
 }
 
 .containerlogo {
@@ -100,7 +101,7 @@ em,
 }
 
 #projects p {
-  padding-left: 1em;
+    padding-left: 1em;
 }
 
 a {
@@ -130,9 +131,9 @@ h2 {
 }
 
 #header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #logo {
@@ -233,21 +234,21 @@ h2 {
     }
 }
 
-    #about {
-        margin-top: 2em;
-    }
+#about {
+    margin-top: 2em;
+}
 
-    #about h2 {
-        margin-bottom: 0.5em;
-    }
+#about h2 {
+    margin-bottom: 0.5em;
+}
 
-    #about h3 {
-        font-style: italic;
-    }
+#about h3 {
+    font-style: italic;
+}
 
 body.dark-theme {
-  background-color: #1a1a1a;
-  color: #ffffff;
+    background-color: #1a1a1a;
+    color: #ffffff;
 }
 
 /* .dark-theme h1 { */
@@ -262,10 +263,12 @@ body.dark-theme {
     color: tomato;
 }
 
-.dark-theme li, .dark-theme h2, .dark-theme h3, .dark-theme h4 {
+.dark-theme li,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4 {
     color: #fff;
 }
-
 
 
 @media (max-width: 1223px) {
@@ -289,7 +292,7 @@ body.dark-theme {
     }
 
     #links a {
-        margin: 0.3em; 
+        margin: 0.3em;
     }
 }
 

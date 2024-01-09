@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,19 +10,22 @@
 	<meta name="distribution" content="Global" />
 	<meta name="rating" content="General" />
 	<meta name="creator" content="Noam Zeitoun" />
-	<!-- <link rel="icon" href="images/favicon.ico"> -->
+	<link rel="icon" href="../assets/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
 	<link rel="manifest" href="../manifest.json">
-	<link rel="stylesheet" href="../css/style_misc.css" />
-	<title>Noam Zeitoun</title>
+	<link rel="stylesheet" href="../css/style_index.css" />
+  
+<title>
+Noam Zeitoun | Website
+</title>
 </head>
-
 <body>
 	<div class="container " id="about ">
 		<a href="/indexx.html">
-			<-- back</a>
+			<-- back</a> <span id="themeToggle"></span>
 				<h2><var>Math.min() > Math.max()</var></h2>
-				<br />
+				
+<br />
 <p>
 Why <var>Math.min() > Math.max()</var> is <var>true</var> ?
 <br><br>
@@ -33,12 +35,10 @@ Why <var>Math.min() > Math.max()</var> is <var>true</var> ?
 Writing <var>Math.min()</var> as well as Math.max() without arguments, is like looking for the lower and upper bound of an empty set.
 <br><br>
 So we should have something that looks like this:
-
 <br><br>
     Let 𝐸 = ∅,
     <var>inf(𝐸)</var> > <var>sup(𝐸)</var>
     <br><br>
-
 So it makes sense to write <var>Infinity > -Infinity</var>
 <br><br>
 But why?
@@ -89,5 +89,7 @@ Bottom line,
 is "<var>true</var>", and now it won't look weird to you.
 </p>
         </div>
+        
+<script src="../js/main_index.js"></script>
     </body>
     </html>
