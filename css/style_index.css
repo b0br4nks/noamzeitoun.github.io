@@ -137,7 +137,8 @@ h2 {
 }
 
 #logo {
-    width: 70%;
+    /* width: 70%; */
+    width: 50%;
     margin-bottom: 1em;
     transition: 0.01s;
     align-self: center;
