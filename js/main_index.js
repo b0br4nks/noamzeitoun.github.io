@@ -1,5 +1,5 @@
 console.log("I have a truly marvelous self-description, which this margin is too narrow to contain.")
-const secret = '76861742061726520796f75206c6f6f6b696e6720666f723f203b29';
+const sub_58A6E0 = '422a151604091e7524013f2a55170667020635632c1a2c006c0814'; //TODO: remove this secret
 const username = 'nzrlabs';
 const apiUrl = `https://cryptohack.org/api/user/${username}/`;
 const toggleButton = document.getElementById('themeToggle');
