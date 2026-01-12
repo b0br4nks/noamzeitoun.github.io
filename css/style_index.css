@@ -32,7 +32,7 @@ body {
     padding-top: 1.5em;
     background-color: white;
     line-height: 1.65;
-    font-size: 1.15em;
+    font-size: 1.05em;
 }
 
 em,
@@ -92,6 +92,18 @@ em,
 
 .container {
     padding: 1em 20em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+}
+
+.container > h2:first-of-type,
+.container > p:first-of-type {
+    grid-column: 1 / -1;
+}
+
+.full-width {
+    grid-column: 1 / -1;
 }
 
 .containerlogo {
@@ -283,6 +295,7 @@ body.dark-theme {
 @media (max-width: 1223px) {
     .container {
         padding: 1em 4em;
+        grid-template-columns: 1fr;
     }
 
     body {
