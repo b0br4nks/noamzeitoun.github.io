@@ -63,7 +63,7 @@ em,
 }
 
 .date {
-    color: green;
+    color: firebrick;
     font-weight: bold;
 }
 
@@ -148,6 +148,17 @@ h1 {
 
 h2 {
     color: black;
+}
+
+h2 {
+    border-left: 2px solid firebrick;
+    padding-left: 0.5em;
+}
+
+h3 {
+    background-color: rgba(60, 20, 220, 0.04);
+    padding: 0.3em 0.5em;
+    border-radius: 3px;
 }
 
 #header {
