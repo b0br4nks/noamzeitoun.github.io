@@ -70,7 +70,7 @@ function typeLine() {
 
   if (line === "") {
     output.innerHTML += "<br/>";
-    setTimeout(typeLine, 100);
+    setTimeout(typeLine, 10);
     return;
   }
   let charIndex = 0;
@@ -81,9 +81,9 @@ function typeLine() {
     if (charIndex >= line.length) {
       clearInterval(interval);
       output.innerHTML += "<br/>";
-      setTimeout(typeLine, 100);
+      setTimeout(typeLine, 10);
     }
-  }, 20);
+  }, 1);
 }
 
 window.onload = () => {
