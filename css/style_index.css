@@ -10,6 +10,13 @@ h1 {
     margin-top: 0;
 }
 
+h3 {
+    font-style: italic;
+    font-size: 1.05em;
+    color: #555;
+    margin-top: 1em;
+}
+
 html,
 body {
     /* height: 100%; */
@@ -19,11 +26,13 @@ body {
 }
 
 body {
-    font-family: "Inconsolata", monospace;
+    font-family: "Baskerville", "Times New Roman", "Georgia", serif;
     overflow-wrap: break-word;
     padding-bottom: 1.5em;
     padding-top: 1.5em;
     background-color: white;
+    line-height: 1.65;
+    font-size: 1.15em;
 }
 
 em,
@@ -118,8 +127,7 @@ h1,
 h2,
 p,
 li {
-    /* color: black; */
-    font-family: 'Inconsolata', monospace;
+    font-family: 'Baskerville', 'Times New Roman', 'Georgia', serif;
 }
 
 h1 {
