@@ -3,158 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Noam Zeitoun - Software Architect specializing in network automation, distributed systems, and security">
+  <meta name="description" content="Software Architect building production AI systems. Go, Python, distributed systems.">
   <meta name="author" content="Noam Zeitoun">
+  <title>Noam Zeitoun — Software Architect &amp; AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="css/style_index.css">
-  <title>Noam Zeitoun</title>
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem("theme") !== "dark") {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
-<body>
-  <div id="header">
-    <h1>Noam Zeitoun</h1>
-    <p class="emb">Network Automation · Software Architecture · Security</p>
-    <div id="links">
-      <p>
-        [<a href="https://github.com/b0br4nks/" target="_blank">github</a>]
-        [<a href="https://linkedin.com/in/noamzeitoun/" target="_blank">linkedin</a>]
-        [<a href="https://nzrlabs.com" target="_blank">nzrlabs</a>]
-        [<a href="#" id="themeToggle">theme</a>]
-      </p>
-    </div>
+<body class="graph-open">
+  <button type="button" class="graph-toggle-mobile mono" id="graph-toggle-mobile" aria-label="Toggle graph explorer">try me</button>
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
+    <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+    </svg>
+    <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+    </svg>
+  </button>
+  <div class="graph-backdrop" id="graph-backdrop" aria-hidden="true"></div>
+  <div class="app" aria-label="Portfolio layout">
+    <aside class="panel panel--left" aria-label="Introduction and navigation">
+      <div class="panel__inner">
+        <header class="intro">
+          <img class="intro__photo" src="me.png" width="180" height="180" alt="Noam Zeitoun">
+          <h1 class="intro__name">
+            <span id="typed-name" class="typed-target" aria-live="polite"></span><span class="cursor" id="name-cursor" aria-hidden="true">_</span>
+          </h1>
+          <p class="intro__role">Software Architect</p>
+          <p class="intro__role">AI Engineering</p>
+          <p class="intro__bio">
+            Software Architect building production AI/ML & network systems<br>
+            LLM automation, simulation, distributed backends (Go/Python)<br>
+            <span class="intro__availability mono"><span class="status__dot" aria-hidden="true"></span>Paris, France — exploring AI Engineering opportunities <br>
+            (remote worldwide)</span>
+          </p>
+        </header>
+
+        <nav class="nav mono" aria-label="Section navigation">
+          <a class="nav__link" href="#about" data-section="about"><span class="nav__dash">—</span> About</a>
+          <a class="nav__link" href="#experience" data-section="experience"><span class="nav__dash">—</span> Experience</a>
+          <a class="nav__link" href="#projects" data-section="projects"><span class="nav__dash">—</span> Projects</a>
+          <a class="nav__link" href="#publications" data-section="publications"><span class="nav__dash">—</span> Publications</a>
+          <a class="nav__link" href="#skills" data-section="skills"><span class="nav__dash">—</span> Skills</a>
+        </nav>
+
+        <div class="rule" role="presentation"></div>
+
+        <div class="social mono">
+          <a class="social__link" href="https://github.com/b0br4nks/" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span class="social__sep" aria-hidden="true">·</span>
+          <a class="social__link" href="https://linkedin.com/in/noamzeitoun/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="social__sep" aria-hidden="true">·</span>
+          <a class="social__link" href="https://nzrlabs.com" target="_blank" rel="noopener noreferrer">NZR Labs</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="panel panel--right" id="main-scroll" tabindex="-1">
+      <div class="panel__inner panel__inner--scroll">
+        <section id="about" class="section" data-section="about">
+          <h2 class="section__label mono"><span class="bracket">[01]</span> <span class="section__em">—</span> About</h2>
+          <div class="section__body prose">
+            <p>Software Architect with 5 years building production-grade systems: distributed backend (Go/Python), network automation, DevOps, observability, and security.</p>
+            
+            <p>Designing complex systems at the intersection of networking, simulation, and AI: satellite network (real-time latency, dynamic topology), LLM-based automation pipelines, and high-performance backend architectures.</p>
+            
+            <p>Focus on applied AI from a systems perspective: reliability, latency, validation, and integration into real-world infrastructure over isolated experimentation.</p>
+            
+            <p>Published work on LLM-driven network automation. Founder of NZR Labs.</p>
+            <p>Based in Paris, France. Exploring AI Engineering opportunities <br>
+              (remote worldwide).</p>
+          </div>
+        </section>
+
+        <section id="experience" class="section" data-section="experience">
+          <h2 class="section__label mono"><span class="bracket">[02]</span> <span class="section__em">—</span> Experience</h2>
+          <div class="section__body">
+            <article class="exp">
+              <p class="exp__dates mono">2021 — present</p>
+              <h3 class="exp__title">NXO France — Software Architect (NetDevOps)</h3>
+              <ul class="exp__list prose">
+                <li>Satellite network: Go backend for real-time latency simulation (distance-based), dynamic topology, and link degradations</li>
+                <li>Mathematical modeling (3D geometry, orbital motion) and simulation algorithms (event-driven loops, dynamic graph/state evolution)</li>
+                <li>API design bridging frontend and network emulation platforms for topology and link control</li>
+                
+                <li>Generative AI for network automation: LLM-based config parsing into structured JSON (multi-vendor)</li>
+                <li>Model optimization: LoRA fine-tuning, teacher-student pipelines, validation layers to mitigate hallucinations</li>
+                
+                <li>Network automation CLI in Go (plugin architecture, SSH, full API), including cryptographic mechanisms and license/key management system</li>
+                <li>Backend systems: Python/Django platforms, high-performance monitoring (Go, async messaging)</li>
+                <li>DevOps: Docker, Nautobot, Vault, Prometheus, Grafana, GitLab CI/CD, gRPC architectures</li>
+              </ul>
+            </article>
+            <article class="exp">
+              <p class="exp__dates mono">2023 — present</p>
+              <h3 class="exp__title">NZR Labs — Founder</h3>
+              <ul class="exp__list prose">
+                <li>Offensive security consulting and auditing</li>
+                <li>Penetration testing (web, infrastructure, network)</li>
+                <li>DFIR and incident response</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="section" data-section="projects">
+          <h2 class="section__label mono"><span class="bracket">[03]</span> <span class="section__em">—</span> Projects</h2>
+          <div class="section__body cards">
+            <article class="card">
+              <p class="card__year mono">2026</p>
+              <h3 class="card__title">Silent Security Drift in LLM-Driven Network Automation</h3>
+              <p class="card__desc prose">Empirical research on LLM-induced security vulnerabilities in automation systems.</p>
+              <div class="card__tags mono">
+                <a class="tag" href="https://raw.githubusercontent.com/b0br4nks/silent-security-drift/main/paper/silent_drift.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
+                <a class="tag" href="https://github.com/b0br4nks/silent-security-drift" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </article>
+            <article class="card">
+              <p class="card__year mono">2022</p>
+              <h3 class="card__title">Skorpio</h3>
+              <p class="card__desc prose">Stack-oriented programming language.</p>
+              <div class="card__tags mono">
+                <a class="tag" href="https://github.com/b0br4nks/skorpio" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+            </article>
+            <article class="card">
+              <p class="card__year mono">2022</p>
+              <h3 class="card__title">sm0rtbuff3rb0yz</h3>
+              <p class="card__desc prose">CTF team (co-founder) — offensive security competitions.</p>
+              <div class="card__tags mono">
+                <a class="tag" href="https://sm0rtbuff3rb0yz.github.io/" target="_blank" rel="noopener noreferrer">Site</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="publications" class="section" data-section="publications">
+          <h2 class="section__label mono"><span class="bracket">[04]</span> <span class="section__em">—</span> Publications</h2>
+          <div class="section__body">
+            <article class="pub">
+              <p class="pub__year mono">2026</p>
+              <h3 class="pub__title">Silent Security Drift in LLM-Driven Network Automation</h3>
+              <p class="pub__desc prose">Empirical analysis of LLM-induced security vulnerabilities in network automation.</p>
+              <a class="pub__link mono" href="https://raw.githubusercontent.com/b0br4nks/silent-security-drift/main/paper/silent_drift.pdf" target="_blank" rel="noopener noreferrer">Read paper →</a>
+            </article>
+            <article class="pub">
+              <p class="pub__year mono">2023</p>
+              <h3 class="pub__title">Introduction to AI Applied to Network Automation</h3>
+              <p class="pub__desc prose">NLP applications in network automation — arXiv preprint.</p>
+              <a class="pub__link mono" href="https://arxiv.org/abs/2204.00800" target="_blank" rel="noopener noreferrer">arXiv →</a>
+            </article>
+          </div>
+        </section>
+
+        <section id="skills" class="section section--last" data-section="skills">
+          <h2 class="section__label mono"><span class="bracket">[05]</span> <span class="section__em">—</span> Skills</h2>
+          <div class="section__body">
+            <dl class="skill-grid mono">
+              <div class="skill-row">
+                <dt class="skill-row__label">Languages</dt>
+                <dd class="skill-row__items">Go · Python · JavaScript</dd>
+              </div>
+              <div class="skill-row">
+                <dt class="skill-row__label">AI / LLM</dt>
+                <dd class="skill-row__items">LLM APIs · RAG · Agents · Evals</dd>
+              </div>
+              <div class="skill-row">
+                <dt class="skill-row__label">Systems</dt>
+                <dd class="skill-row__items">Distributed Systems · gRPC · REST</dd>
+              </div>
+              <div class="skill-row">
+                <dt class="skill-row__label">DevOps</dt>
+                <dd class="skill-row__items">Docker · Prometheus · Grafana · Vault · GitLab CI</dd>
+              </div>
+              <div class="skill-row">
+                <dt class="skill-row__label">Automation</dt>
+                <dd class="skill-row__items">Nautobot · Nornir · NAPALM · Jinja2</dd>
+              </div>
+              <div class="skill-row">
+                <dt class="skill-row__label">Security</dt>
+                <dd class="skill-row__items">Security Auditing (Web/Infra/Network) · DevSecOps · Code Analysis · CVE Assessment</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+      </div>
+      <div class="snap-dots mono" id="snap-dots" aria-hidden="true">
+        <span class="snap-dot is-active" data-index="0"></span>
+        <span class="snap-dot" data-index="1"></span>
+        <span class="snap-dot" data-index="2"></span>
+        <span class="snap-dot" data-index="3"></span>
+        <span class="snap-dot" data-index="4"></span>
+      </div>
+    </main>
+
+    <aside class="panel panel--right-fixed" aria-label="Embedding space visualization">
+      <button id="emb-toggle" class="emb-toggle-tab mono" type="button" aria-label="Show graph explorer">↤ try me</button>
+      <div class="panel__inner panel__inner--emb">
+        <p class="emb-title mono">&gt;_ graph explorer</p>
+        <div class="emb-context mono">
+          <p class="emb-context__text">&gt;_ graph explorer
+Click to place nodes. Algorithm finds the shortest path in real time.
+Red = explored search space. Yellow = optimal path. Green = path nodes.</p>
+        </div>
+        <div class="emb-canvas-wrap">
+          <canvas id="emb-canvas" class="emb-canvas" aria-label="Interactive graph playground"></canvas>
+        </div>
+        <div class="emb-controls mono">
+          <div class="emb-control-row">
+            <span class="emb-control-label">algorithm (click one)</span>
+            <button class="emb-algo is-active" type="button" data-algo="dijkstra">[Dijkstra]</button>
+            <button class="emb-algo" type="button" data-algo="astar">[A*]</button>
+            <button class="emb-algo" type="button" data-algo="bfs">[BFS]</button>
+              <button class="emb-algo" type="button" data-algo="aiml">[AI/ML]</button>
+          </div>
+          <p class="emb-control-note">[Dijkstra] optimal path, explores by cumulative cost</p>
+          <p class="emb-control-note">[A*] optimal path, guided by euclidean heuristic — faster</p>
+          <p class="emb-control-note">[BFS] shortest hops, ignores edge weights</p>
+            <p class="emb-control-note">[AI/ML] builds graph in batches + retries rewires to self-improve shortest path</p>
+          <div class="emb-control-row">
+            <span class="emb-control-label">temperature [0.0-1.0]</span>
+            <input id="emb-temp" class="emb-slider" type="range" min="0" max="1" step="0.01" value="0.4" aria-label="temperature">
+            <span id="emb-temp-val" class="emb-value">0.4</span>
+          </div>
+          <p class="emb-control-note">Adds noise to edge weights — higher = less predictable paths.</p>
+          <p class="emb-control-note">0.0 = deterministic / 1.0 = near-random</p>
+          <div class="emb-control-row">
+            <span class="emb-control-label">K neighbors [1-5]</span>
+            <input id="emb-k" class="emb-slider" type="range" min="1" max="5" step="1" value="2" aria-label="K neighbors">
+            <span id="emb-k-val" class="emb-value">2</span>
+          </div>
+          <p class="emb-control-note">Edges per node. Higher K = denser graph, more possible paths.</p>
+          <div class="emb-control-row">
+            <span class="emb-control-label">AI budget [1-10]</span>
+            <input id="emb-ai-budget" class="emb-slider" type="range" min="1" max="10" step="1" value="6" aria-label="AI training budget">
+            <span id="emb-ai-budget-val" class="emb-value">6</span>
+          </div>
+          <p class="emb-control-note">[AI/ML] Higher budget = more batches + retries + more nodes (up to 30).</p>
+          <div class="emb-control-row">
+            <span class="emb-control-label">batch size [1-6]</span>
+            <input id="emb-ai-batch" class="emb-slider" type="range" min="1" max="6" step="1" value="3" aria-label="AI batch size">
+            <span id="emb-ai-batch-val" class="emb-value">3</span>
+          </div>
+          <p class="emb-control-note">[AI/ML] Nodes added per batch. Bigger = faster build, less stable learning.</p>
+        </div>
+        <p id="emb-metrics" class="emb-metrics mono">nodes: 0  |  edges: 0  |  path: 0 hops  |  cost: 0.00  |  entropy: 0.00 bits</p>
+        <p id="emb-info" class="emb-info mono"></p>
+        <div class="emb-actions mono">
+          <button id="emb-clear" class="emb-action-btn" type="button">[clear all]</button>
+          <button id="emb-random" class="emb-action-btn" type="button">[random]</button>
+        </div>
+      </div>
+    </aside>
   </div>
-  
-  <div class="container" id="projects">
-    <div class="full-width">
-      <h2>About</h2>
-      <p>
-        I specialize in network automation and security. I design and build high-performance software for infrastructure reliability and security. I also provide consulting and auditing in offensive security and NetDevOps.
-      </p>
-    </div>
-    
-    <!-- Colonne gauche : Current Work + Certifications + Publications + Projects + Practice -->
-    <div>
-      <h2>Current Work</h2>
-      <p>
-        <span class="date">2021–present</span> NXO France — Software Architect (NetDevOps)
-      </p>
-      <ul>
-        <li>Network automation CLI in Go (plugin architecture, SSH, full API)</li>
-        <li>Python/Django platforms for network management and administration</li>
-        <li>High-performance monitoring (Go, vanilla JS, async messaging)</li>
-        <li>DevOps environments (Docker, Nautobot, Vault, Prometheus, Grafana)</li>
-        <li>CI/CD pipelines with GitLab</li>
-        <li>Security systems (NaCl/libsodium, secrets management, license servers)</li>
-        <li>gRPC plugin architectures</li>
-      </ul>
-      
-      <p>
-        <span class="date">2023–present</span> <a href="nzrlabs.html" target="_blank">NZR Labs</a> — Founder
-      </p>
-      <ul>
-        <li>Offensive security consulting and auditing</li>
-        <li>Penetration testing (web, infrastructure, network)</li>
-        <li>DFIR and incident response</li>
-        <li>Threat intelligence and malware analysis</li>
-      </ul>
-
-      <h2>Certifications</h2>
-      <ul>
-        <li><a href="#" target="_blank">Post-Quantum Cryptography Implementation and Analysis</a> — Keysight Technologies</li>
-        <li><a href="#" target="_blank">Ethical Hacker</a> — Cisco Networking Academy</li>
-        <li><a href="#" target="_blank">Fortinet Certified Associate Cybersecurity</a> — Fortinet <em>(2025–2027)</em></li>
-        <li><a href="#" target="_blank">Professional Scrum Master I (PSM I)</a> — Scrum.org</li>
-        <li><a href="#" target="_blank">AttackIQ Academy Threat Whisperer</a> — AttackIQ</li>
-        <li><a href="#" target="_blank">Intelligence-Driven Threat Hunting — Malware</a> — Intel 471</li>
-      </ul>
-
-      <h2>Publications</h2>
-      <p>
-        <span class="date">2026</span> — 
-        <a href="https://raw.githubusercontent.com/b0br4nks/silent-security-drift/main/paper/silent_drift.pdf" target="_blank">Silent Security Drift in LLM-Driven Network Automation</a>
-      </p>
-      <ul>
-        <li>Empirical analysis of LLM-induced security vulnerabilities in network automation</li>
-      </ul>
-      
-      <p>
-        <span class="date">2023</span> — 
-        <a href="https://arxiv.org/abs/2204.00800" target="_blank">Introduction to AI Applied to Network Automation</a>
-      </p>
-      <ul>
-        <li>NLP applications in network automation (arXiv preprint)</li>
-      </ul>
-
-      <h2>Practice & Learning</h2>
-      <p>
-        <a href="https://cryptohack.org/user/nzrlabs/" target="_blank">CryptoHack</a>
-      </p>
-      <ul>
-        <li>Position: <span id="rank"></span>, Score: <span id="score"></span>, Solved: <span id="solved_challenges"></span></li>
-      </ul>
-      
-      <p>
-        <a href="https://www.root-me.org/b0br4nks?lang=en" target="_blank">Root Me</a>
-      </p>
-      <ul>
-        <li>Solved: <em>250</em></li>
-      </ul>
-    </div>
-
-    <!-- Colonne droite : Technical Skills -->
-    <div>
-      <h2>Technical Skills</h2>
-      
-      <h3>Network Automation & NetDevOps</h3>
-      <ul>
-        <li>Nautobot, Netbox — Source of Truth platforms</li>
-        <li>Nornir, NAPALM — Multi-vendor automation</li>
-        <li>Jinja2 templating, configuration compliance</li>
-        <li>NRFU testing and validation</li>
-      </ul>
-
-      <h3>Software Architecture & Development</h3>
-      <ul>
-        <li>Go — CLI tools, plugin systems, API design</li>
-        <li>Python — Django, automation, data processing</li>
-        <li>gRPC, REST, GraphQL</li>
-      </ul>
-
-      <h3>DevOps & Platform Engineering</h3>
-      <ul>
-        <li>GitLab CI/CD, GitOps</li>
-        <li>Docker, Kubernetes, OpenShift</li>
-        <li>Prometheus, Grafana — Monitoring and dashboards</li>
-        <li>Vault — Secrets management</li>
-      </ul>
-
-      <h3>Security & Offensive Security</h3>
-      <ul>
-        <li>Penetration testing (web, infrastructure, network — OWASP, SAST/SCA)</li>
-        <li>Reverse engineering (Radare2, Ghidra, IDA Pro)</li>
-        <li>DFIR and forensic analysis</li>
-        <li>Threat intelligence (OSINT, malware analysis, IOC tracking)</li>
-        <li>CTF competitions (Team SBB)</li>
-      </ul>
-
-      <h2>Projects</h2>
-      <p>
-        <span class="date">2022</span> — 
-        <a href="skorpio.html" target="_blank">Skorpio</a>
-      </p>
-      <ul>
-        <li>Stack-oriented programming language</li>
-      </ul>
-      
-      <p>
-        <span class="date">2022</span> — 
-        <a href="https://sm0rtbuff3rb0yz.github.io/" target="_blank">sm0rtbuff3rb0yz</a>
-      </p>
-      <ul>
-        <li>CTF team (co-founder) — Offensive security competitions</li>
-      </ul>
-    </div>
-  </div>
-  
-<script src="js/main_index.js"></script>
+  <script src="js/main_index.js"></script>
 </body>
 </html>
