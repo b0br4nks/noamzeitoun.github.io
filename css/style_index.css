@@ -224,6 +224,63 @@ html[data-theme="light"] .theme-toggle__icon--moon {
     flex-basis 300ms ease-in-out, max-width 300ms ease-in-out;
 }
 
+/* Subtle custom scrollbar for center panel (Chrome/Edge/Safari) */
+.panel--right::-webkit-scrollbar,
+#experience.section::-webkit-scrollbar,
+#projects.section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.panel--right::-webkit-scrollbar-track,
+#experience.section::-webkit-scrollbar-track,
+#projects.section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel--right::-webkit-scrollbar-thumb,
+#experience.section::-webkit-scrollbar-thumb,
+#projects.section::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+.panel--right::-webkit-scrollbar-thumb:hover,
+#experience.section::-webkit-scrollbar-thumb:hover,
+#projects.section::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+  background-clip: padding-box;
+}
+
+/* Firefox */
+.panel--right,
+#experience.section,
+#projects.section {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+}
+
+html[data-theme="light"] .panel--right::-webkit-scrollbar-thumb,
+html[data-theme="light"] #experience.section::-webkit-scrollbar-thumb,
+html[data-theme="light"] #projects.section::-webkit-scrollbar-thumb {
+  background: rgba(82, 82, 91, 0.35);
+  background-clip: padding-box;
+}
+
+html[data-theme="light"] .panel--right::-webkit-scrollbar-thumb:hover,
+html[data-theme="light"] #experience.section::-webkit-scrollbar-thumb:hover,
+html[data-theme="light"] #projects.section::-webkit-scrollbar-thumb:hover {
+  background: rgba(82, 82, 91, 0.5);
+  background-clip: padding-box;
+}
+
+html[data-theme="light"] .panel--right,
+html[data-theme="light"] #experience.section,
+html[data-theme="light"] #projects.section {
+  scrollbar-color: rgba(82, 82, 91, 0.45) transparent;
+}
+
 .panel--right-fixed {
   flex: 0.75 1 0;
   width: auto;
